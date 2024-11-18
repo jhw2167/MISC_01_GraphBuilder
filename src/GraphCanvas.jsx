@@ -258,7 +258,6 @@ export const GraphCanvas = () => {
             }
         }
         
-        setSelected([]);
       };
 
       /* ##################### */
