@@ -140,6 +140,16 @@ export const GraphCanvas = () => {
         if (nodeId === "dummy") 
             return;
 
+        //if the nodeId is not equal to the id currently selected, call connectNodes and return
+        if (selected.length === 1 && selected[0] !== nodeId) 
+        {
+            connectNodes(selected[0], nodeId);
+            return;
+        }
+
+        // Select the node
+        setSelected([nodeId]);
+
         // Start dragging immediately
         const node = currentNodeStates.find(node => node.id === nodeId);
         if (node) 
@@ -256,7 +266,7 @@ export const GraphCanvas = () => {
                     key={nodeState.id}
                     nodeState={nodeState}
                     grid={GRID}
-                    isSelected={isSelected(nodeState.id)   }
+                    isSelected={isSelected(nodeState.id) || false  }
                 />
             ))}
             
@@ -264,6 +274,7 @@ export const GraphCanvas = () => {
                 <Node 
                     nodeState={dummyNode}
                     grid={GRID}
+                    isSelected={false}
                 />
             )}
         </div>
