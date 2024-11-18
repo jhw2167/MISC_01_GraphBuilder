@@ -13,10 +13,10 @@ export const Node = ({ nodeState, grid, isSelected, onOptionChange }) => {
 
     return (
         <div style={{ position: 'relative' }}>
-            {isSelected && (
+            {isSelected && onOptionChange && (
                 <NodeOptionsPanel 
                     options={{
-                        color: nodeState.color,
+                        color: Object.keys(COLORS).find(key => COLORS[key] === nodeState.color) || 'grey',
                         icon: nodeState.icon
                     }}
                     onOptionChange={onOptionChange}
