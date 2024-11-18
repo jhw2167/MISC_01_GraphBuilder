@@ -264,6 +264,57 @@ export const GraphCanvas = () => {
       /* ##################### */
       /* ##################### */
 
+    const drawVertices = () => {
+        const canvas = canvasRef.current;
+        if (!canvas) return;
+
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        vertices.forEach(([sourceId, targetId]) => {
+            const sourceNode = currentNodeStates.find(node => node.id === sourceId);
+            const targetNode = currentNodeStates.find(node => node.id === targetId);
+            
+            if (sourceNode && targetNode) {
+                const startX = GRID.BUFFER_SIDE + (parseInt(sourceNode.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2;
+                const startY = GRID.BUFFER_TOP + (parseInt(sourceNode.posY) * GRID.VERTICAL_SPACING) + GRID.NODE_HEIGHT/2;
+                const endX = GRID.BUFFER_SIDE + (parseInt(targetNode.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2;
+                const endY = GRID.BUFFER_TOP + (parseInt(targetNode.posY) * GRID.VERTICAL_SPACING) + GRID.NODE_HEIGHT/2;
+
+                ctx.beginPath();
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
+                ctx.strokeStyle = '#000000';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                // Draw arrow head
+                const angle = Math.atan2(endY - startY, endX - startX);
+                const arrowLength = 15;
+                const arrowWidth = 8;
+
+                ctx.beginPath();
+                ctx.moveTo(endX, endY);
+                ctx.lineTo(
+                    endX - arrowLength * Math.cos(angle) + arrowWidth * Math.sin(angle),
+                    endY - arrowLength * Math.sin(angle) - arrowWidth * Math.cos(angle)
+                );
+                ctx.lineTo(
+                    endX - arrowLength * Math.cos(angle) - arrowWidth * Math.sin(angle),
+                    endY - arrowLength * Math.sin(angle) + arrowWidth * Math.cos(angle)
+                );
+                ctx.closePath();
+                ctx.fillStyle = '#000000';
+                ctx.fill();
+            }
+        });
+    };
+
+    // Add effect to redraw vertices when they change
+    useEffect(() => {
+        drawVertices();
+    }, [vertices, currentNodeStates]);
+
     return (
         <div 
         style={{ 
@@ -279,7 +330,7 @@ export const GraphCanvas = () => {
         style={{
             border: '1px solid black', 
             position: 'relative',
-          cursor: dummyNode ? 'grabbing' : 'pointer',
+            cursor: dummyNode ? 'grabbing' : 'pointer',
             width: dimensions[0],
             height: dimensions[1]
         }}
@@ -288,6 +339,17 @@ export const GraphCanvas = () => {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
       >
+            <canvas
+                ref={canvasRef}
+                width={dimensions[0]}
+                height={dimensions[1]}
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    pointerEvents: 'none'
+                }}
+            />
             {currentNodeStates.map(nodeState => (
                 <Node 
                     key={nodeState.id}
