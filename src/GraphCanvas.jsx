@@ -144,28 +144,6 @@ export const GraphCanvas = () => {
             }
         }
 
-        // Check if clicked on delete button
-        const deleteButton = e.target.closest('[data-delete-button]');
-        if (deleteButton) {
-            const nodeElement = deleteButton.closest('[data-node-id]');
-            if (nodeElement) {
-                const nodeId = nodeElement.dataset.nodeId;
-                // Remove all vertices connected to this node
-                setVertices(vertices.filter(([s, t]) => s !== nodeId && t !== nodeId));
-                // Remove node from other nodes' previous arrays
-                const updatedNodes = currentNodeStates.map(node => {
-                    if (node.previous.includes(nodeId)) {
-                        const updatedNode = structuredClone(node);
-                        updatedNode.previous = updatedNode.previous.filter(id => id !== nodeId);
-                        return updatedNode;
-                    }
-                    return node;
-                });
-                setNewNodeStates(updatedNodes);
-                setSelected([]);
-                return;
-            }
-        }
 
         // Find if we clicked on a node
         const nodeElement = e.target.closest('[data-node-id]');
@@ -386,6 +364,18 @@ export const GraphCanvas = () => {
                 ctx.strokeStyle = '#000000';
                 ctx.lineWidth = 2;
                 ctx.stroke();
+
+                // Draw delete button if a node is selected
+                if (selected.length === 1) {
+                    // Calculate midpoint of the path
+                    const deleteX = midX;
+                    const deleteY = (startY + endY) / 2;
+                    
+                    ctx.beginPath();
+                    ctx.arc(deleteX, deleteY, 15, 0, 2 * Math.PI);
+                    ctx.fillStyle = 'red';
+                    ctx.fill();
+                }
 
                 // Draw arrow head
                 const angle = Math.atan2(endY - startY, endX - startX);

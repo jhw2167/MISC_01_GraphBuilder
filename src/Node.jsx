@@ -29,28 +29,11 @@ export const Node = ({ nodeState, grid, isSelected }) => {
                 boxSizing: 'border-box'
             }}
         >
-            <div style={{ position: 'relative' }}>
+            <div>
                 <div>{nodeState.icon}</div>
                 <div>{nodeState.title}</div>
                 {nodeState.subtitle && <div>{nodeState.subtitle}</div>}
                 <div>{nodeState.descr}</div>
-                {isSelected && (
-                    <div 
-                        data-delete-button
-                        style={{
-                            position: 'absolute',
-                            top: '50%',
-                            left: '50%',
-                            transform: 'translate(-50%, -50%)',
-                            width: '20px',
-                            height: '20px',
-                            borderRadius: '50%',
-                            backgroundColor: 'red',
-                            cursor: 'pointer',
-                            zIndex: 10
-                        }}
-                    />
-                )}
             </div>
         </div>
     );
