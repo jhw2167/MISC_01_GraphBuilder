@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NodeState } from './NodeState';
+import { NodeOptionsPanel } from './NodeOptionsPanel';
 
-export const Node = ({ nodeState, grid, isSelected }) => {
+export const Node = ({ nodeState, grid, isSelected, onOptionChange }) => {
 
     const xPos = grid.BUFFER_SIDE + (parseInt(nodeState.posX) * grid.HORIZONTAL_SPACING);
     const yPos = grid.BUFFER_TOP + (parseInt(nodeState.posY) * grid.VERTICAL_SPACING);
@@ -11,7 +12,17 @@ export const Node = ({ nodeState, grid, isSelected }) => {
     const isDummy = nodeState.id === 'dummy';
 
     return (
-        <div 
+        <div style={{ position: 'relative' }}>
+            {isSelected && (
+                <NodeOptionsPanel 
+                    options={{
+                        color: nodeState.color,
+                        icon: nodeState.icon
+                    }}
+                    onOptionChange={onOptionChange}
+                />
+            )}
+            <div 
             data-node-id={nodeState.id}
             style={{
                 position: 'absolute',
@@ -49,5 +60,6 @@ Node.propTypes = {
         BUFFER_TOP: PropTypes.number.isRequired,
         BUFFER_SIDE: PropTypes.number.isRequired
     }).isRequired,
-    isSelected: PropTypes.bool.isRequired
+    isSelected: PropTypes.bool.isRequired,
+    onOptionChange: PropTypes.func
 };

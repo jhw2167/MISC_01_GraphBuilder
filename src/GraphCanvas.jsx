@@ -504,7 +504,8 @@ export const GraphCanvas = () => {
                     key={nodeState.id}
                     nodeState={nodeState}
                     grid={GRID}
-                    isSelected={isSelected(nodeState.id) || false  }
+                    isSelected={isSelected(nodeState.id) || false}
+                    onOptionChange={handleOptionChange}
                 />
             ))}
             
