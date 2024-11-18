@@ -11,12 +11,12 @@ const COLORS = {
 };
 
 const GRID = {
-  ROWS: 6,
+  ROWS: 5,
   COLUMNS: 50,
   NODE_WIDTH: 150,
   NODE_HEIGHT: 100,
   VERTICAL_SPACING: 120,
-  HORIZONTAL_SPACING: 170
+  HORIZONTAL_SPACING: 250
 };
 
 const GraphBuilder = () => {
