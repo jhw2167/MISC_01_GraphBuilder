@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { NodeState } from './NodeState';
 
 export const Node = ({ nodeState, onSelect, grid }) => {
+
     const handleClick = () => {
+      if(nodeState.id === "dummy")
+        return;
+      
         if (onSelect) {
             onSelect(nodeState.id);
         }

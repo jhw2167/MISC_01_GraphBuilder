@@ -193,9 +193,9 @@ export const GraphCanvas = () => {
                 setNewNodeStates([updatedNode]);
             }
             
-            setDummyNode(null);
+            
         }
-        setSelected([]);
+        setDummyNode(null);
     };
 
       const snapToGrid = (x, y) => {
@@ -245,7 +245,6 @@ export const GraphCanvas = () => {
                 <Node 
                     key={nodeState.id}
                     nodeState={nodeState}
-                    onSelect={handleNodeSelect}
                     grid={GRID}
                 />
             ))}
