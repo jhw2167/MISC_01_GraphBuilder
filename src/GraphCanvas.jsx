@@ -69,7 +69,7 @@ export const GraphCanvas = () => {
 
     // Watch for selected nodes changes
     useEffect(() => {
-        // Future implementation
+        console.log(selected);
     }, [selected]);
 
     // Watch for current node state changes
@@ -77,7 +77,10 @@ export const GraphCanvas = () => {
         // Future implementation
         //Log the current node states as json
         if(currentNodeStates.length > 0)
-            console.log(JSON.stringify(currentNodeStates, null, 2));
+        {
+            //console.log(JSON.stringify(currentNodeStates, null, 2));
+        }
+            
 
     }, [currentNodeStates]);
 
@@ -137,9 +140,6 @@ export const GraphCanvas = () => {
         if (nodeId === "dummy") 
             return;
 
-        // Select the node
-        setSelected([nodeId]);
-
         // Start dragging immediately
         const node = currentNodeStates.find(node => node.id === nodeId);
         if (node) 
@@ -157,7 +157,7 @@ export const GraphCanvas = () => {
                 "icon": node.icon
             });
             //log the posx and y
-            console.log(node.posX + "  " + node.posY);
+            //console.log(node.posX + "  " + node.posY);
             setDummyNode(nodeState);
         }
     };
@@ -218,6 +218,14 @@ export const GraphCanvas = () => {
         };
       };
 
+      const isSelected = (nodeId) => {
+        
+        if (!selected || !Array.isArray(selected))
+          return false;
+
+        return selected.includes(nodeId);
+      };
+
       /* ##################### */
       /* ##################### */
       /* ##################### */
@@ -244,13 +252,14 @@ export const GraphCanvas = () => {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        //onMouseLeave={handleMouseUp}
+        onMouseLeave={handleMouseLeave}
       >
             {currentNodeStates.map(nodeState => (
                 <Node 
                     key={nodeState.id}
                     nodeState={nodeState}
                     grid={GRID}
+                    isSelected={isSelected(nodeState.id)   }
                 />
             ))}
             
