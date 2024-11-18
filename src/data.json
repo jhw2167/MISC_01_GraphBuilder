@@ -5,26 +5,30 @@
       "icon": "📄",
       "title": "Start",
       "description": "Beginning node",
-      "positionX": 5,
-      "positionY": 1,
+      "posX": 1,
+      "posY": 1,
       "previous": [],
-      "color": "#e2e8f0"
+      "color": "gray"
     },
     {
       "id": "2",
       "icon": "📝",
+      "posX": 3,
+      "posY": 1,
       "title": "Process",
       "description": "Processing node",
       "previous": ["1"],
-      "color": "#bfdbfe"
+      "color": "green"
     },
     {
       "id": "3",
       "icon": "✅",
+      "posX": 4,
+      "posY": 2,
       "title": "End",
       "description": "Final node",
       "previous": ["2"],
-      "color": "#bbf7d0"
+      "color": "blue"
     }
   ]
 }

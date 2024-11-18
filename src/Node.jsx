@@ -7,6 +7,10 @@ export const Node = ({ nodeState, grid }) => {
     const xPos = grid.BUFFER_SIDE + (parseInt(nodeState.posX) * grid.HORIZONTAL_SPACING);
     const yPos = grid.BUFFER_TOP + (parseInt(nodeState.posY) * grid.VERTICAL_SPACING);
 
+    //if the id is dummy, calculate the position based on the mouse position
+    const isDummy = nodeState.id === 'dummy';
+    
+
     return (
         <div 
             data-node-id={nodeState.id}
@@ -14,8 +18,8 @@ export const Node = ({ nodeState, grid }) => {
                 position: 'absolute',
                 width: `${grid.NODE_WIDTH}px`,
                 height: `${grid.NODE_HEIGHT}px`,
-                left: `${xPos}px`,
-                top: `${yPos}px`,
+                left: isDummy ? `${nodeState.posX}px` : `${xPos}px`,
+                top: isDummy ? `${nodeState.posY}px` : `${yPos}px`,
                 backgroundColor: nodeState.color,
                 padding: '10px',
                 borderRadius: '5px',

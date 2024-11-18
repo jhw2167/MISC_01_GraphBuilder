@@ -134,23 +134,30 @@ export const GraphCanvas = () => {
         }
 
         const nodeId = nodeElement.dataset.nodeId;
-        if (nodeId === "dummy") return;
+        if (nodeId === "dummy") 
+            return;
 
         // Select the node
         setSelected([nodeId]);
 
         // Start dragging immediately
         const node = currentNodeStates.find(node => node.id === nodeId);
-        if (node) {
+        if (node) 
+        {
+            const posX = parseInt(node.posX) * GRID.HORIZONTAL_SPACING + GRID.BUFFER_SIDE;
+            const posY = parseInt(node.posY) * GRID.VERTICAL_SPACING + GRID.BUFFER_TOP;
+
             let nodeState = NodeState.fromJSON({
                 "id": "dummy",
                 "color": node.color,
-                "posX": node.posX,
-                "posY": node.posY,
+                "posX": posX,
+                "posY": posY,
                 "title": node.title,
                 "description": node.descr,
                 "icon": node.icon
             });
+            //log the posx and y
+            console.log(node.posX + "  " + node.posY);
             setDummyNode(nodeState);
         }
     };
@@ -158,8 +165,8 @@ export const GraphCanvas = () => {
     const handleMouseMove = (e) => {
         if (dummyNode) {
             const rect = e.currentTarget.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const x = e.clientX - rect.left - GRID.NODE_WIDTH / 2;
+            const y = e.clientY - rect.top - GRID.NODE_HEIGHT / 2;
             
             setDummyNode(prev => new NodeState(
                 "dummy",
@@ -175,6 +182,10 @@ export const GraphCanvas = () => {
         }
     };
     
+    const handleMouseLeave = () => {
+        setDummyNode(null);
+    }
+
     const handleMouseUp = () => {
         if (dummyNode) {
             const snappedPos = snapToGrid(dummyNode.posX, dummyNode.posY);
@@ -233,7 +244,7 @@ export const GraphCanvas = () => {
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+        //onMouseLeave={handleMouseUp}
       >
             {currentNodeStates.map(nodeState => (
                 <Node 

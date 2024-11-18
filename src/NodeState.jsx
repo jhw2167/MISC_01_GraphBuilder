@@ -1,11 +1,24 @@
+const COLORS = {
+    "blue": "#bfdbfe",
+    "red": "#fecaca",
+    "green": "#bbf7d0",
+    "grey": "#e2e8f0",
+    "yellow": "#fef08a",
+    "purple": "#e9d5ff"
+  };
+  
+
 export class NodeState {
-    constructor(id, color, posX, posY, title, subtitle, descr, icon) {
+
+    
+    constructor(id, color, posX, posY, title, subtitle, previous, descr, icon) {
         this.id = String(id);
-        this.color = String(color);
+        this.color = COLORS[color] || color;
         this.posX = String(posX);
         this.posY = String(posY);
         this.title = String(title);
         this.subtitle = String(subtitle);
+        this.previous = previous;
         this.descr = String(descr);
         this.icon = String(icon);
     }
@@ -14,12 +27,15 @@ export class NodeState {
         return new NodeState(
             jsonNode.id,
             jsonNode.color || "#e2e8f0",
-            jsonNode.positionX || "0",
-            jsonNode.positionY || "0",
+            jsonNode.posX || "0",
+            jsonNode.posY || "0",
             jsonNode.title || "",
-            "", // subtitle not in JSON
+            jsonNode.subtitle || "", // subtitle not in JSON
+            jsonNode.previous || [],
             jsonNode.description || "",
             jsonNode.icon || "📄"
         );
     }
+
+    //create a constructor from another nodeState and 
 }
