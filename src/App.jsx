@@ -1,16 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import GraphBuilder from './GraphBuilder'
+import { GraphCanvas } from './GraphCanvas'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  //<img src={viteLogo} className="logo" alt="Vite logo" />
-
   return (
-   <GraphBuilder />
+    <div style={{ width: '100vw', height: '100vh' }}>
+      <GraphCanvas />
+    </div>
   )
 }
 
