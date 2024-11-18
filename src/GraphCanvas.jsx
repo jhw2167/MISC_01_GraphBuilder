@@ -233,6 +233,34 @@ export const GraphCanvas = () => {
         return Array.isArray(selected) && selected.includes(nodeId);
       };
 
+      const connectNodes = (sourceId, targetId) => {
+        const sourceNode = currentNodeStates.find(node => node.id === sourceId);
+        const targetNode = currentNodeStates.find(node => node.id === targetId);
+        
+        if (!sourceNode || !targetNode) return;
+
+        // Determine which node is leftmost
+        const sourcePosX = parseInt(sourceNode.posX);
+        const targetPosX = parseInt(targetNode.posX);
+        
+        // Add connection from left node to right node
+        if (sourcePosX <= targetPosX) {
+            const updatedTarget = structuredClone(targetNode);
+            if (!updatedTarget.previous.includes(sourceId)) {
+                updatedTarget.previous.push(sourceId);
+                setNewNodeStates([updatedTarget]);
+            }
+        } else {
+            const updatedSource = structuredClone(sourceNode);
+            if (!updatedSource.previous.includes(targetId)) {
+                updatedSource.previous.push(targetId);
+                setNewNodeStates([updatedSource]);
+            }
+        }
+        
+        setSelected([]);
+      };
+
       /* ##################### */
       /* ##################### */
       /* ##################### */
