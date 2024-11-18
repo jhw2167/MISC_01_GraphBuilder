@@ -5,6 +5,8 @@
       "icon": "📄",
       "title": "Start",
       "description": "Beginning node",
+      "positionX": 5,
+      "positionY": 1,
       "previous": [],
       "color": "#e2e8f0"
     },

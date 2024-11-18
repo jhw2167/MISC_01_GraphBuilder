@@ -23,6 +23,8 @@ export const GraphCanvas = () => {
 
     /* State */
 
+    //wxh
+    const [dimensions, setDimensions] = useState([]);
     const [selected, setSelected] = useState([]);
     const [dragging, setDragging] = useState(null);
     const [currentNodeStates, setCurrentNodeStates] = useState([]);
@@ -35,6 +37,14 @@ export const GraphCanvas = () => {
 
 
     /* Effects */
+
+    // Watch for dimensions changes
+    useEffect(() => {
+        let width=GRID.BUFFER_SIDE * 2 + (GRID.COLUMNS - 1) * GRID.HORIZONTAL_SPACING;
+        let height=GRID.BUFFER_TOP * 2 + (GRID.ROWS - 1) * GRID.VERTICAL_SPACING;
+        setDimensions([width, height]);
+        
+    }, []);
 
     // Initial data load
     useEffect(() => {
@@ -61,6 +71,10 @@ export const GraphCanvas = () => {
     // Watch for current node state changes
     useEffect(() => {
         // Future implementation
+        //Log the current node states as json
+        if(currentNodeStates.length > 0)
+            console.log(JSON.stringify(currentNodeStates, null, 2));
+
     }, [currentNodeStates]);
 
     //use curretnNodeStates to set vertices
@@ -137,7 +151,8 @@ export const GraphCanvas = () => {
       /* ##################### */
 
     return (
-        <div style={{ 
+        <div 
+        style={{ 
             padding: '1rem', 
             border: '1px solid black', 
             borderRadius: '0.5rem',
@@ -146,16 +161,13 @@ export const GraphCanvas = () => {
             overflowX: 'auto',
             position: 'relative'
           }}>
-        <div
-        ref={canvasRef}
-        width={GRID.BUFFER_SIDE * 2 + (GRID.COLUMNS - 1) * GRID.HORIZONTAL_SPACING}
-        height={GRID.BUFFER_TOP * 2 + (GRID.ROWS - 1) * GRID.VERTICAL_SPACING}
+        <div  
         style={{
             border: '1px solid black', 
             position: 'relative',
           cursor: dragging ? 'grabbing' : 'pointer',
-          minWidth: '100%'
-         
+            width: dimensions[0],
+            height: dimensions[1]
         }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
