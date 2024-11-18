@@ -225,17 +225,17 @@ export const GraphCanvas = () => {
             const x = e.clientX - rect.left - GRID.NODE_WIDTH / 2;
             const y = e.clientY - rect.top - GRID.NODE_HEIGHT / 2;
             
-            if (prev) {
+            if (dummyNode) {
                 setDummyNode(new NodeState(
                     "dummy",
-                    prev.color,
+                    dummyNode.color,
                     x,
                     y,
-                    prev.title,
-                    prev.subtitle,
+                    dummyNode.title,
+                    dummyNode.subtitle,
                     [],
-                    prev.descr,
-                    prev.icon
+                    dummyNode.descr,
+                    dummyNode.icon
                 ));
             }
         }
