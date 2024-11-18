@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Node } from './Node';
 import { NodeState } from './NodeState';
+import { DEFAULT_OPTIONS } from './NodeOptions';
 import initialData from './assets/data.json';
 import techData from './assets/techTree.json';
 
