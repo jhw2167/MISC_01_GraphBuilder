@@ -409,7 +409,7 @@ export const GraphCanvas = () => {
             padding: '1rem', 
             border: '1px solid black', 
             borderRadius: '0.5rem',
-            width: '80vw',
+            width: '90vw',
             height: '90vh',
             overflowX: 'auto',
             position: 'relative',
@@ -420,7 +420,7 @@ export const GraphCanvas = () => {
           }}>
         <div  
         style={{
-            border: '1px solid black', 
+            //border: '1px solid black', 
             position: 'relative',
             cursor: dummyNode ? 'grabbing' : 'pointer',
             width: dimensions[0],
