@@ -29,7 +29,7 @@ const Node = ({
         width: '150px',
         height: '100px'
       }}
-      onClick={onClick}
+      onMouseDown={onClick}
     >
       {isSelected && (
         <>
