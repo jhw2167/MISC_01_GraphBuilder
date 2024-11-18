@@ -1,13 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Node } from './Node';
 import { NodeState } from './NodeState';
-import initialData from './data.json';
+import initialData from './assets/data.json';
+import techData from './assets/techTree.json';
 
 export const GraphCanvas = () => {
-
-    /* Types */
-
-
 
     /* Constants */
     const GRID = {
@@ -52,7 +49,16 @@ export const GraphCanvas = () => {
 
     // Initial data load
     useEffect(() => {
-        const initialNodeStates = initialData.nodes.map(node => NodeState.fromJSON(node));
+        let data = initialData.nodes;
+        let initialNodeStates = data.map(node => NodeState.fromJSON(node));
+
+        let useTechData = true;
+        if(useTechData)
+        {
+            data = techData.technologies;
+            initialNodeStates = data.map(node => NodeState.fromJSONTechTree(node));
+        }
+
         setHistory([initialNodeStates]);
         setCurrentNodeStates(initialNodeStates);
     }, []);
@@ -69,7 +75,7 @@ export const GraphCanvas = () => {
 
     // Watch for selected nodes changes
     useEffect(() => {
-        //console.log(selected);
+        console.log(selected);
     }, [selected]);
 
     // Watch for current node state changes
