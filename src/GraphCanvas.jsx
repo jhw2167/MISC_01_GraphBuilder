@@ -219,11 +219,8 @@ export const GraphCanvas = () => {
       };
 
       const isSelected = (nodeId) => {
-        
-        if (!selected || !Array.isArray(selected))
-          return false;
-
-        return selected.includes(nodeId);
+        if (!nodeId) return false;
+        return Array.isArray(selected) && selected.includes(nodeId);
       };
 
       /* ##################### */
