@@ -18,7 +18,9 @@ export const GraphCanvas = () => {
         VERTICAL_SPACING: 115,
         HORIZONTAL_SPACING: 250,
         BUFFER_TOP: 30,
-        BUFFER_SIDE: 50
+        BUFFER_SIDE: 50,
+        CONTAINER_BUFFER_TOP: 50,
+        CONTAINER_BUFFER_SIDE: 150
       };
 
     /* State */
@@ -27,7 +29,10 @@ export const GraphCanvas = () => {
     const [dimensions, setDimensions] = useState([]);
     const [selected, setSelected] = useState([]);
     const [dragging, setDragging] = useState(null);
+    const [dummyNode, setDummyNode] = useState(null);
+
     const [currentNodeStates, setCurrentNodeStates] = useState([]);
+    const [newNodeStates, setNewNodeStates] = useState([]);
     const [history, setHistory] = useState([]);
     const [historyHead, setHistoryHead] = useState(0);
     const [vertices, setVertices] = useState([]);
@@ -79,71 +84,138 @@ export const GraphCanvas = () => {
 
     //use curretnNodeStates to set vertices
     useEffect(() => {
+        
+        if( vertices.length > 0)
+            return;
+
+        let newVerticies = [];
         currentNodeStates.forEach(node => {
-            if (node.edges) {
-                node.edges.forEach(edge => {
-                    setVertices(prev => [...prev, edge]);
+            
+            if (node.previous && node.previous.length > 0) 
+            {
+                node.previous.forEach(edge => {
+                    newVerticies.push([edge, node.id]);
                 });
             }
-        }); 
+        });
 
+        if(newVerticies.length > 0)
+            setVertices(newVerticies);
 
     }, [vertices]);
 
-    const handleNodeSelect = (nodeId) => {
-        setSelected(prev => [...prev, nodeId]);
-    };
+    //create a useEffect to establish new nodes by copying the currentNodeState
+    useEffect(() => {
+        if (newNodeStates.length > 0) 
+        {
+            //map a new array of the current node states pushing the updated state or the existing one
+            newNodes = currentNodeStates.map(node => {
+                const newNode = newNodeStates.find(n => n.id === node.id);
+                return newNode ? newNode : node;
+            });
+            history.push(newNodes);
+            setHistoryHead(history.length - 1);
+        }
+    }, [newNodeStates]);
 
+      /* ##################### */
+    /* ##################### */
+    /* ##################### */
 
-    /* ##################### */
-    /* ##################### */
-    /* ##################### */
 
     /* Functions */
 
+    const handleNodeSelect = (nodeId) => {
+        //check if selcted already contains id:
+        console.log("selected id " + nodeId);
+        if( !selected )
+            return;
+
+        //log the object type of selected
+        console.log("selected type " + typeof selected);
+
+        if (selected.indexOf(nodeId) > -1)
+            return;
+    
+        setSelected(prev => structuredClone(prev).push(nodeId));
+        console.log("selected type after" + typeof selected);
+        
+    };
+
     const handleMouseDown = (e) => {
-        const rect = canvasRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-    
-        const clickedNode = nodes.find(node => {
-          const pos = positions[node.id];
-          return pos &&
-            x >= pos.x && x <= pos.x + GRID.NODE_WIDTH &&
-            y >= pos.y && y <= pos.y + GRID.NODE_HEIGHT;
-        });
-    
-        if (clickedNode) {
-          setDragging(clickedNode.id);
-          setDummyNode({
-            id: 'dummy',
-            x: positions[clickedNode.id].x,
-            y: positions[clickedNode.id].y
-          });
+       
+        //get the node at the 0 index of selected
+        if(!selected || selected.length == undefined || selected.length === 0)
+            return;
+        
+        console.log("selected length " + selected.length);
+        let id = selected.length > 0 ? selected[0] : -1;
+
+        if(id === -1)
+            return;
+
+        console.log("id" + id);
+        let n = currentNodeStates.find(node => node.id === id);
+        
+
+        if (n) {
+          setDragging(id);
+          let nodeState = NodeState.fromJSON({"id": "dummy",
+             "color": n.color,
+             "posX": n.posX,
+             "posY": n.posY,
+             "title": n.title,
+             "description": n.descr,
+             "icon": n.icon
+            });
+          setDummyNode(nodeState);
         }
       };
     
       const handleMouseMove = (e) => {
-        if (dragging && dummyNode) {
-          const rect = canvasRef.current.getBoundingClientRect();
-          setDummyNode(prev => ({
-            ...prev,
-            x: e.clientX - rect.left - GRID.NODE_WIDTH / 2,
-            y: e.clientY - rect.top - GRID.NODE_HEIGHT / 2
-          }));
+        if (dragging && dummyNode) 
+        {
+            //console.log(e.clientX + " " + e.clientY);
+            
+            setDummyNode(prev => { 
+                let ns = prev;
+                ns.posX = e.clientX - GRID.CONTAINER_BUFFER_SIDE;
+                ns.posY = e.clientY - GRID.CONTAINER_BUFFER_TOP;
+                return ns;
+            });
         }
       };
     
       const handleMouseUp = () => {
-        if (dragging && dummyNode) {
-          const snappedPos = snapToGrid(dummyNode.x, dummyNode.y);
-          setPositions(prev => ({
-            ...prev,
-            [dragging]: snappedPos
-          }));
-          setDummyNode(null);
-          setDragging(null);
+        if (dragging && dummyNode) 
+        {
+            const snappedPos = snapToGrid(dummyNode.posX, dummyNode.posY);
+            console.log("snappedPos");
+            console.log(snappedPos);
+
+            let node = currentNodeStates.find(node => node.id === dragging);
+            node.posX = snappedPos.posX;
+            node.posY = snappedPos.posY;
+            setNewNodeStates([node]);
+
+            setDummyNode(null);
+            setDragging(null);
         }
+      };
+
+      const snapToGrid = (x, y) => {
+        const col = Math.round((x - GRID.BUFFER_SIDE) / GRID.HORIZONTAL_SPACING);
+        const row = Math.round((y - GRID.BUFFER_TOP) / GRID.VERTICAL_SPACING);
+        
+        const snappedCol = Math.max(0, Math.min(col, GRID.COLUMNS - 1));
+        const snappedRow = Math.max(0, Math.min(row, GRID.ROWS - 1));
+        
+        return {
+          x: GRID.BUFFER_SIDE + snappedCol * GRID.HORIZONTAL_SPACING,
+          y: GRID.BUFFER_TOP + snappedRow * GRID.VERTICAL_SPACING,
+          posX: snappedCol,
+          posY: snappedRow
+        };
       };
 
       /* ##################### */
@@ -169,7 +241,7 @@ export const GraphCanvas = () => {
             width: dimensions[0],
             height: dimensions[1]
         }}
-        onMouseDown={handleMouseDown}
+        //onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
@@ -182,6 +254,13 @@ export const GraphCanvas = () => {
                     grid={GRID}
                 />
             ))}
+            
+            {dummyNode && (
+                <Node 
+                    nodeState={dummyNode}
+                    grid={GRID}
+                />
+            )}
         </div>
     </div>
     );
