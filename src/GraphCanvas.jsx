@@ -15,9 +15,9 @@ export const GraphCanvas = () => {
         COLUMNS: 50,
         NODE_WIDTH: 150,
         NODE_HEIGHT: 100,
-        VERTICAL_SPACING: 120,
+        VERTICAL_SPACING: 115,
         HORIZONTAL_SPACING: 250,
-        BUFFER_TOP: 50,
+        BUFFER_TOP: 30,
         BUFFER_SIDE: 50
       };
 
@@ -40,10 +40,10 @@ export const GraphCanvas = () => {
 
     // Watch for dimensions changes
     useEffect(() => {
-        let width=GRID.BUFFER_SIDE * 2 + (GRID.COLUMNS - 1) * GRID.HORIZONTAL_SPACING;
-        let height=GRID.BUFFER_TOP * 2 + (GRID.ROWS - 1) * GRID.VERTICAL_SPACING;
+        let width=GRID.BUFFER_SIDE * 2 + (GRID.COLUMNS ) * GRID.HORIZONTAL_SPACING;
+        let height=GRID.BUFFER_TOP * 2 + (GRID.ROWS ) * GRID.VERTICAL_SPACING;
         setDimensions([width, height]);
-        
+
     }, []);
 
     // Initial data load
