@@ -11,9 +11,9 @@ export const GraphCanvas = () => {
 
     /* Constants */
     const GRID = {
-        ROWS: 5,
+        ROWS: 7,
         COLUMNS: 50,
-        NODE_WIDTH: 150,
+        NODE_WIDTH: 200,
         NODE_HEIGHT: 100,
         VERTICAL_SPACING: 115,
         HORIZONTAL_SPACING: 250,

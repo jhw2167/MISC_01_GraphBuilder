@@ -2,14 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NodeState } from './NodeState';
 
-export const Node = ({ nodeState, grid }) => {
+export const Node = ({ nodeState, grid, isSelected }) => {
 
     const xPos = grid.BUFFER_SIDE + (parseInt(nodeState.posX) * grid.HORIZONTAL_SPACING);
     const yPos = grid.BUFFER_TOP + (parseInt(nodeState.posY) * grid.VERTICAL_SPACING);
 
     //if the id is dummy, calculate the position based on the mouse position
     const isDummy = nodeState.id === 'dummy';
-    
 
     return (
         <div 
@@ -23,6 +22,9 @@ export const Node = ({ nodeState, grid }) => {
                 backgroundColor: nodeState.color,
                 padding: '10px',
                 borderRadius: '5px',
+                borderStyle: 'solid',
+                borderWidth: isSelected ? '4px' : '1px',
+                borderColor: isSelected ? 'yellow' : 'black',
                 cursor: 'pointer',
                 boxSizing: 'border-box'
             }}
@@ -44,5 +46,6 @@ Node.propTypes = {
         HORIZONTAL_SPACING: PropTypes.number.isRequired,
         BUFFER_TOP: PropTypes.number.isRequired,
         BUFFER_SIDE: PropTypes.number.isRequired
-    }).isRequired
+    }).isRequired,
+    isSelected: PropTypes.bool.isRequired
 };
