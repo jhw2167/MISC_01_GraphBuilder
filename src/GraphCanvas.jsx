@@ -69,7 +69,7 @@ export const GraphCanvas = () => {
 
     // Watch for selected nodes changes
     useEffect(() => {
-        console.log(selected);
+        //console.log(selected);
     }, [selected]);
 
     // Watch for current node state changes
@@ -143,8 +143,10 @@ export const GraphCanvas = () => {
         //if the nodeId is not equal to the id currently selected, call connectNodes and return
         if (selected.length === 1 && selected[0] !== nodeId) 
         {
-            connectNodes(selected[0], nodeId);
-            return;
+            
+            let alreadyConnected = connectNodes(selected[0], nodeId);
+            if(!alreadyConnected)
+                return;
         }
 
         // Select the node
@@ -237,7 +239,17 @@ export const GraphCanvas = () => {
         const sourceNode = currentNodeStates.find(node => node.id === sourceId);
         const targetNode = currentNodeStates.find(node => node.id === targetId);
         
-        if (!sourceNode || !targetNode) return;
+        if (!sourceNode || !targetNode) 
+            return true;
+
+        const updatedTarget = structuredClone(targetNode);
+        const updatedSource = structuredClone(sourceNode);
+
+        let targetLinked = updatedTarget.previous.includes(sourceId);
+        let sourceLinked = updatedSource.previous.includes(targetId);
+
+        if(targetLinked || sourceLinked)
+            return true;
 
         // Determine which node is leftmost
         const sourcePosX = parseInt(sourceNode.posX);
@@ -245,19 +257,14 @@ export const GraphCanvas = () => {
         
         // Add connection from left node to right node
         if (sourcePosX <= targetPosX) {
-            const updatedTarget = structuredClone(targetNode);
-            if (!updatedTarget.previous.includes(sourceId)) {
-                updatedTarget.previous.push(sourceId);
-                setNewNodeStates([updatedTarget]);
-            }
+            updatedTarget.previous.push(sourceId);
+            setNewNodeStates([updatedTarget]);
         } else {
-            const updatedSource = structuredClone(sourceNode);
-            if (!updatedSource.previous.includes(targetId)) {
-                updatedSource.previous.push(targetId);
-                setNewNodeStates([updatedSource]);
-            }
+            updatedSource.previous.push(targetId);
+            setNewNodeStates([updatedSource]);
         }
         
+        return false;
       };
 
       /* ##################### */
