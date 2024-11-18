@@ -129,6 +129,21 @@ export const GraphCanvas = () => {
 
 
     const handleMouseDown = (e) => {
+        // Get canvas coordinates
+        const canvas = canvasRef.current;
+        if (canvas && selected.length === 1) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Check if click is on a vertex
+            const clickedVertex = checkVertexClick(x, y);
+            if (clickedVertex) {
+                deleteVertex(clickedVertex);
+                return;
+            }
+        }
+
         // Find if we clicked on a node
         const nodeElement = e.target.closest('[data-node-id]');
         if (!nodeElement) {
@@ -266,6 +281,51 @@ export const GraphCanvas = () => {
         
         return false;
       };
+
+      const checkVertexClick = (x, y) => {
+        const canvas = canvasRef.current;
+        if (!canvas) return null;
+
+        for (const [sourceId, targetId] of vertices) {
+            const sourceNode = currentNodeStates.find(node => node.id === sourceId);
+            const targetNode = currentNodeStates.find(node => node.id === targetId);
+            
+            if (sourceNode && targetNode) {
+                const startX = GRID.BUFFER_SIDE + (parseInt(sourceNode.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2;
+                const startY = GRID.BUFFER_TOP + (parseInt(sourceNode.posY) * GRID.VERTICAL_SPACING) + GRID.NODE_HEIGHT/2;
+                const endX = GRID.BUFFER_SIDE + (parseInt(targetNode.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2;
+                const endY = GRID.BUFFER_TOP + (parseInt(targetNode.posY) * GRID.VERTICAL_SPACING) + GRID.NODE_HEIGHT/2;
+
+                // Calculate distance from click to line
+                const lineLength = Math.sqrt((endX - startX) ** 2 + (endY - startY) ** 2);
+                const distance = Math.abs((endY - startY) * x - (endX - startX) * y + endX * startY - endY * startX) / lineLength;
+
+                // Check if click is within 5 pixels of the line
+                if (distance < 5) {
+                    // Check if click is between start and end points
+                    const dotProduct = ((x - startX) * (endX - startX) + (y - startY) * (endY - startY)) / (lineLength * lineLength);
+                    if (dotProduct >= 0 && dotProduct <= 1) {
+                        return [sourceId, targetId];
+                    }
+                }
+            }
+        }
+        return null;
+    };
+
+    const deleteVertex = (vertex) => {
+        if (!vertex) return;
+        
+        const [sourceId, targetId] = vertex;
+        const targetNode = currentNodeStates.find(node => node.id === targetId);
+        
+        if (targetNode) {
+            const updatedTarget = structuredClone(targetNode);
+            updatedTarget.previous = updatedTarget.previous.filter(id => id !== sourceId);
+            setNewNodeStates([updatedTarget]);
+            setVertices(vertices.filter(([s, t]) => !(s === sourceId && t === targetId)));
+        }
+    };
 
       /* ##################### */
       /* ##################### */
