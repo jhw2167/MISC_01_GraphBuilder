@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import nodesData from './data.json';
+import Node from './Node';
 
 const COLORS = {
   BLUE: '#bfdbfe',
@@ -25,6 +26,8 @@ const GraphBuilder = () => {
   const [nodes, setNodes] = useState(initialNodes);
   const [dragging, setDragging] = useState(null);
   const [positions, setPositions] = useState({});
+  const [selectedNode, setSelectedNode] = useState(null);
+  const [nodeHistory, setNodeHistory] = useState({});
   const canvasRef = useRef(null);
 
   // Initialize node positions
@@ -93,12 +96,54 @@ const GraphBuilder = () => {
     });
   }, [positions, nodes]);
 
+  const handleNodeClick = (nodeId) => {
+    setSelectedNode(selectedNode === nodeId ? null : nodeId);
+  };
+
+  const handleDisconnect = (nodeId) => {
+    const updatedNodes = nodes.map(node => ({
+      ...node,
+      previous: node.previous ? node.previous.filter(id => id !== nodeId) : []
+    }));
+
+    setNodeHistory(prev => ({
+      ...prev,
+      [nodeId]: nodes
+    }));
+    
+    setNodes(updatedNodes);
+  };
+
+  const handleUndo = (nodeId) => {
+    if (nodeHistory[nodeId]) {
+      setNodes(nodeHistory[nodeId]);
+      setNodeHistory(prev => {
+        const { [nodeId]: removed, ...rest } = prev;
+        return rest;
+      });
+    }
+  };
+
+  const handleColorChange = (nodeId) => {
+    const colorKeys = Object.keys(COLORS);
+    setNodes(nodes.map(node => {
+      if (node.id === nodeId) {
+        const currentColorIndex = colorKeys.findIndex(key => COLORS[key] === node.color);
+        const nextColorIndex = (currentColorIndex + 1) % colorKeys.length;
+        return {
+          ...node,
+          color: COLORS[colorKeys[nextColorIndex]]
+        };
+      }
+      return node;
+    }));
+  };
+
   const handleMouseDown = (e) => {
     const rect = canvasRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
 
-    // Check if clicking on a node
     const clickedNode = nodes.find(node => {
       const pos = positions[node.id];
       return pos &&
@@ -142,8 +187,28 @@ const GraphBuilder = () => {
       border: '1px solid #e2e8f0', 
       borderRadius: '0.5rem',
       width: '100%',
-      overflowX: 'auto'
+      overflowX: 'auto',
+      position: 'relative'
     }}>
+      {nodes.map(node => {
+        const pos = positions[node.id];
+        if (pos) {
+          return (
+            <div key={node.id} style={{ position: 'absolute', left: pos.x, top: pos.y }}>
+              <Node
+                node={node}
+                position={pos}
+                isSelected={selectedNode === node.id}
+                onDisconnect={() => handleDisconnect(node.id)}
+                onUndo={() => handleUndo(node.id)}
+                onColorChange={() => handleColorChange(node.id)}
+                onClick={() => handleNodeClick(node.id)}
+              />
+            </div>
+          );
+        }
+        return null;
+      })}
       <canvas
         ref={canvasRef}
         width={GRID.COLUMNS * GRID.HORIZONTAL_SPACING}
