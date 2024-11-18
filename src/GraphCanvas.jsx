@@ -159,7 +159,6 @@ export const GraphCanvas = () => {
         //if the nodeId is not equal to the id currently selected, call connectNodes and return
         if (selected.length === 1 && selected[0] !== nodeId) 
         {
-            
             let alreadyConnected = connectNodes(selected[0], nodeId);
             if(!alreadyConnected)
                 return;
@@ -251,6 +250,7 @@ export const GraphCanvas = () => {
         return Array.isArray(selected) && selected.includes(nodeId);
       };
 
+    //connect two nodes with a vertice, returns true if the nodes are already connected or we dont' want to connect them
       const connectNodes = (sourceId, targetId) => {
         const sourceNode = currentNodeStates.find(node => node.id === sourceId);
         const targetNode = currentNodeStates.find(node => node.id === targetId);
@@ -276,8 +276,7 @@ export const GraphCanvas = () => {
             updatedTarget.previous.push(sourceId);
             setNewNodeStates([updatedTarget]);
         } else {
-            updatedSource.previous.push(targetId);
-            setNewNodeStates([updatedSource]);
+          return true;
         }
         
         return false;
@@ -402,10 +401,10 @@ export const GraphCanvas = () => {
     // Add effect to redraw vertices when they change
     useEffect(() => {
         drawVertices();
-    }, [vertices, currentNodeStates]);
+    }, [vertices, currentNodeStates, selected]);
 
     return (
-        <div 
+        <div id='graph-canvas'
         style={{ 
             padding: '1rem', 
             border: '1px solid black', 
@@ -413,7 +412,9 @@ export const GraphCanvas = () => {
             width: '80vw',
             height: '90vh',
             overflowX: 'auto',
-            position: 'relative'
+            position: 'relative',
+            float: 'left'
+            
           }}>
         <div  
         style={{
