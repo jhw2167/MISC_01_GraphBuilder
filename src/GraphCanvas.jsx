@@ -124,29 +124,23 @@ export const GraphCanvas = () => {
 
     /* Functions */
 
-    const handleNodeSelect = (nodeId) => {
-
-        if (!selected || !Array.isArray(selected)) {
-            setSelected([nodeId]);
-            return;
-        }
-
-        if (selected.includes(nodeId)) {
-            return;
-        }
-        let copy = structuredClone(selected);
-        setSelected(copy.push(nodeId));
-    };
 
     const handleMouseDown = (e) => {
-        if (!Array.isArray(selected) || selected.length === 0) {
+        // Find if we clicked on a node
+        const nodeElement = e.target.closest('[data-node-id]');
+        if (!nodeElement) {
+            setSelected([]);
             return;
         }
-        
-        const id = selected[0];
-        if (id === -1) return;
 
-        const node = currentNodeStates.find(node => node.id === id);
+        const nodeId = nodeElement.dataset.nodeId;
+        if (nodeId === "dummy") return;
+
+        // Select the node
+        setSelected([nodeId]);
+
+        // Start dragging immediately
+        const node = currentNodeStates.find(node => node.id === nodeId);
         if (node) {
             let nodeState = NodeState.fromJSON({
                 "id": "dummy",

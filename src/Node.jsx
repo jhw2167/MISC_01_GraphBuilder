@@ -4,21 +4,12 @@ import { NodeState } from './NodeState';
 
 export const Node = ({ nodeState, onSelect, grid }) => {
 
-    const handleClick = () => {
-      if(nodeState.id === "dummy")
-        return;
-      
-        if (onSelect) {
-            onSelect(nodeState.id);
-        }
-    };
-
     const xPos = grid.BUFFER_SIDE + (parseInt(nodeState.posX) * grid.HORIZONTAL_SPACING);
     const yPos = grid.BUFFER_TOP + (parseInt(nodeState.posY) * grid.VERTICAL_SPACING);
 
     return (
         <div 
-            onClick={handleClick}
+            data-node-id={nodeState.id}
             style={{
                 position: 'absolute',
                 width: `${grid.NODE_WIDTH}px`,
