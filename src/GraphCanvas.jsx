@@ -21,7 +21,12 @@ export const GraphCanvas = () => {
       };
 
     /* State */
-
+    
+    //Options state
+    const [showOptionsPanel, setShowOptionsPanel] = useState(false);
+    const [nodeOptions, setNodeOptions] = useState(DEFAULT_OPTIONS);
+    const [selectedNodeOptions, setSelectedNodeOptions] = useState(null);
+    
     //wxh
     const [dimensions, setDimensions] = useState([]);
     const [selected, setSelected] = useState([]); // Array of selected node IDs
@@ -75,8 +80,24 @@ export const GraphCanvas = () => {
 
     // Watch for selected nodes changes
     useEffect(() => {
-        console.log(selected);
-    }, [selected]);
+        if (selected.length === 1) {
+            const selectedNode = currentNodeStates.find(node => node.id === selected[0]);
+            if (selectedNode) {
+                setSelectedNodeOptions({
+                    color: selectedNode.color,
+                    icon: selectedNode.icon,
+                    showDescription: true,
+                    showSubtitle: true,
+                    fontSize: "normal",
+                    borderStyle: "solid"
+                });
+                setShowOptionsPanel(true);
+            }
+        } else {
+            setSelectedNodeOptions(null);
+            setShowOptionsPanel(false);
+        }
+    }, [selected, currentNodeStates]);
 
     // Watch for current node state changes
     useEffect(() => {
@@ -330,6 +351,31 @@ export const GraphCanvas = () => {
             updatedTarget.previous = updatedTarget.previous.filter(id => id !== sourceId);
             setNewNodeStates([updatedTarget]);
             setVertices(vertices.filter(([s, t]) => !(s === sourceId && t === targetId)));
+        }
+    };
+
+    const handleOptionChange = (optionKey, value) => {
+        if (selected.length === 1) {
+            const updatedOptions = { ...selectedNodeOptions, [optionKey]: value };
+            setSelectedNodeOptions(updatedOptions);
+            
+            const selectedNode = currentNodeStates.find(node => node.id === selected[0]);
+            if (selectedNode) {
+                const updatedNode = structuredClone(selectedNode);
+                
+                // Apply the option change to the node
+                switch(optionKey) {
+                    case 'color':
+                        updatedNode.color = COLORS[value] || value;
+                        break;
+                    case 'icon':
+                        updatedNode.icon = value;
+                        break;
+                    // Add other option handlers as needed
+                }
+                
+                setNewNodeStates([updatedNode]);
+            }
         }
     };
 
