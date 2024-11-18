@@ -202,7 +202,11 @@ const GraphBuilder = () => {
                 onDisconnect={() => handleDisconnect(node.id)}
                 onUndo={() => handleUndo(node.id)}
                 onColorChange={() => handleColorChange(node.id)}
-                onClick={() => handleNodeClick(node.id)}
+                //onClick={() => handleNodeClick(node.id)}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
               />
             </div>
           );
@@ -219,10 +223,7 @@ const GraphBuilder = () => {
           cursor: dragging ? 'grabbing' : 'grab',
           minWidth: '100%'
         }}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
+       
       />
     </div>
   );

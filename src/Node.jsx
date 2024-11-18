@@ -19,6 +19,9 @@ const Node = ({
     fontSize: '12px'
   };
 
+  const TOP_OFFSET = -12;
+  const LEFT_OFFSET = [30, 70, 105];
+
   return (
     <div 
       style={{
@@ -31,7 +34,7 @@ const Node = ({
       {isSelected && (
         <>
           <button 
-            style={{ ...buttonStyle, top: '-30px', left: '50%', transform: 'translateX(-50%)' }}
+            style={{ ...buttonStyle, top: TOP_OFFSET, left: LEFT_OFFSET[0] }}
             onClick={(e) => {
               e.stopPropagation();
               onDisconnect();
@@ -40,7 +43,7 @@ const Node = ({
             X
           </button>
           <button 
-            style={{ ...buttonStyle, top: '50%', left: '-60px', transform: 'translateY(-50%)' }}
+            style={{ ...buttonStyle, top: TOP_OFFSET, left: LEFT_OFFSET[1], transform: 'translateX(-50%)' }}
             onClick={(e) => {
               e.stopPropagation();
               onUndo();
@@ -49,7 +52,7 @@ const Node = ({
             ↩
           </button>
           <button 
-            style={{ ...buttonStyle, top: '50%', right: '-60px', transform: 'translateY(-50%)' }}
+            style={{ ...buttonStyle, top: TOP_OFFSET, left: LEFT_OFFSET[2], transform: 'translateX(-50%)' }}
             onClick={(e) => {
               e.stopPropagation();
               onColorChange();
