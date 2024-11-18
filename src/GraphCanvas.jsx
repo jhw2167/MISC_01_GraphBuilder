@@ -500,6 +500,7 @@ export const GraphCanvas = () => {
                 }}
             />
             {currentNodeStates.map(nodeState => (
+                //check type of nodeState
                 <Node 
                     key={nodeState.id}
                     nodeState={nodeState}
@@ -510,6 +511,7 @@ export const GraphCanvas = () => {
             ))}
             
             {dummyNode && (
+                (dummyNode instanceof NodeState) &&
                 <Node 
                     nodeState={dummyNode}
                     grid={GRID}

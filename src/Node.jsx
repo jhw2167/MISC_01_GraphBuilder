@@ -14,15 +14,6 @@ export const Node = ({ nodeState, grid, isSelected, onOptionChange }) => {
 
     return (
         <div style={{ position: 'relative' }}>
-            {isSelected && onOptionChange && (
-                <NodeOptionsPanel 
-                    options={{
-                        color: Object.keys(COLORS).find(key => COLORS[key] === nodeState.color) || 'grey',
-                        icon: nodeState.icon
-                    }}
-                    onOptionChange={onOptionChange}
-                />
-            )}
             <div 
             data-node-id={nodeState.id}
             style={{
@@ -48,8 +39,9 @@ export const Node = ({ nodeState, grid, isSelected, onOptionChange }) => {
                 <div style={{ fontSize: '0.8em' }}>{nodeState.descr}</div>
             </div>
         </div>
+        </div>
     );
-};
+  };
 
 Node.propTypes = {
     nodeState: PropTypes.instanceOf(NodeState).isRequired,
