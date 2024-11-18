@@ -1,0 +1,28 @@
+{
+  "nodes": [
+    {
+      "id": "1",
+      "icon": "📄",
+      "title": "Start",
+      "description": "Beginning node",
+      "previous": [],
+      "color": "#e2e8f0"
+    },
+    {
+      "id": "2",
+      "icon": "📝",
+      "title": "Process",
+      "description": "Processing node",
+      "previous": ["1"],
+      "color": "#bfdbfe"
+    },
+    {
+      "id": "3",
+      "icon": "✅",
+      "title": "End",
+      "description": "Final node",
+      "previous": ["2"],
+      "color": "#bbf7d0"
+    }
+  ]
+}

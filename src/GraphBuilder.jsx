@@ -1,33 +1,26 @@
 import React, { useState, useEffect, useRef } from 'react';
+import nodesData from './data.json';
+
+const COLORS = {
+  BLUE: '#bfdbfe',
+  RED: '#fecaca',
+  GREEN: '#bbf7d0',
+  GREY: '#e2e8f0',
+  YELLOW: '#fef08a',
+  PURPLE: '#e9d5ff'
+};
+
+const GRID = {
+  ROWS: 6,
+  COLUMNS: 50,
+  NODE_WIDTH: 150,
+  NODE_HEIGHT: 100,
+  VERTICAL_SPACING: 120,
+  HORIZONTAL_SPACING: 170
+};
 
 const GraphBuilder = () => {
-  // Sample data structure
-  const initialNodes = [
-    {
-      id: '1',
-      icon: '📄',
-      title: 'Start',
-      description: 'Beginning node',
-      previous: [],
-      color: '#e2e8f0'
-    },
-    {
-      id: '2',
-      icon: '📝',
-      title: 'Process',
-      description: 'Processing node',
-      previous: ['1'],
-      color: '#bfdbfe'
-    },
-    {
-      id: '3',
-      icon: '✅',
-      title: 'End',
-      description: 'Final node',
-      previous: ['2'],
-      color: '#bbf7d0'
-    }
-  ];
+  const initialNodes = nodesData.nodes;
 
   const [nodes, setNodes] = useState(initialNodes);
   const [dragging, setDragging] = useState(null);
@@ -40,13 +33,23 @@ const GraphBuilder = () => {
     nodes.forEach((node, index) => {
       if (!positions[node.id]) {
         newPositions[node.id] = {
-          x: 100 + (index * 200),
-          y: 150
+          x: Math.min(index * GRID.HORIZONTAL_SPACING, (GRID.COLUMNS - 1) * GRID.HORIZONTAL_SPACING),
+          y: GRID.VERTICAL_SPACING
         };
       }
     });
     setPositions({ ...positions, ...newPositions });
   }, [nodes]);
+
+  const snapToGrid = (x, y) => {
+    const col = Math.round(x / GRID.HORIZONTAL_SPACING);
+    const row = Math.round(y / GRID.VERTICAL_SPACING);
+    
+    return {
+      x: Math.max(0, Math.min(col * GRID.HORIZONTAL_SPACING, (GRID.COLUMNS - 1) * GRID.HORIZONTAL_SPACING)),
+      y: Math.max(0, Math.min(row * GRID.VERTICAL_SPACING, (GRID.ROWS - 1) * GRID.VERTICAL_SPACING))
+    };
+  };
 
   // Draw connections and nodes
   useEffect(() => {
@@ -122,19 +125,34 @@ const GraphBuilder = () => {
   };
 
   const handleMouseUp = () => {
+    if (dragging) {
+      const currentPos = positions[dragging];
+      const snappedPos = snapToGrid(currentPos.x, currentPos.y);
+      setPositions(prev => ({
+        ...prev,
+        [dragging]: snappedPos
+      }));
+    }
     setDragging(null);
   };
 
   return (
-    <div style={{ padding: '1rem', border: '1px solid #e2e8f0', borderRadius: '0.5rem' }}>
+    <div style={{ 
+      padding: '1rem', 
+      border: '1px solid #e2e8f0', 
+      borderRadius: '0.5rem',
+      width: '100%',
+      overflowX: 'auto'
+    }}>
       <canvas
         ref={canvasRef}
-        width={800}
-        height={600}
+        width={GRID.COLUMNS * GRID.HORIZONTAL_SPACING}
+        height={GRID.ROWS * GRID.VERTICAL_SPACING}
         style={{
           border: '1px solid #e2e8f0',
           borderRadius: '0.5rem',
-          cursor: dragging ? 'grabbing' : 'grab'
+          cursor: dragging ? 'grabbing' : 'grab',
+          minWidth: '100%'
         }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
