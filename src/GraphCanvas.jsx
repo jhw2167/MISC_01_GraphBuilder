@@ -144,6 +144,29 @@ export const GraphCanvas = () => {
             }
         }
 
+        // Check if clicked on delete button
+        const deleteButton = e.target.closest('[data-delete-button]');
+        if (deleteButton) {
+            const nodeElement = deleteButton.closest('[data-node-id]');
+            if (nodeElement) {
+                const nodeId = nodeElement.dataset.nodeId;
+                // Remove all vertices connected to this node
+                setVertices(vertices.filter(([s, t]) => s !== nodeId && t !== nodeId));
+                // Remove node from other nodes' previous arrays
+                const updatedNodes = currentNodeStates.map(node => {
+                    if (node.previous.includes(nodeId)) {
+                        const updatedNode = structuredClone(node);
+                        updatedNode.previous = updatedNode.previous.filter(id => id !== nodeId);
+                        return updatedNode;
+                    }
+                    return node;
+                });
+                setNewNodeStates(updatedNodes);
+                setSelected([]);
+                return;
+            }
+        }
+
         // Find if we clicked on a node
         const nodeElement = e.target.closest('[data-node-id]');
         if (!nodeElement) {
@@ -348,9 +371,18 @@ export const GraphCanvas = () => {
                 const endX = GRID.BUFFER_SIDE + (parseInt(targetNode.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2;
                 const endY = GRID.BUFFER_TOP + (parseInt(targetNode.posY) * GRID.VERTICAL_SPACING) + GRID.NODE_HEIGHT/2;
 
+                // Draw right-angle path
                 ctx.beginPath();
                 ctx.moveTo(startX, startY);
-                ctx.lineTo(endX, endY);
+                
+                // Calculate midpoint for the right angle
+                const midX = startX + (endX - startX) / 2;
+                
+                // Draw the three segments
+                ctx.lineTo(midX, startY); // Horizontal line from start
+                ctx.lineTo(midX, endY);   // Vertical line
+                ctx.lineTo(endX, endY);   // Horizontal line to end
+                
                 ctx.strokeStyle = '#000000';
                 ctx.lineWidth = 2;
                 ctx.stroke();
