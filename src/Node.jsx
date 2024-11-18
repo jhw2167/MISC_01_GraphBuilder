@@ -2,27 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NodeState } from './NodeState';
 
-export const Node = ({ nodeState, onSelect }) => {
+export const Node = ({ nodeState, onSelect, grid }) => {
     const handleClick = () => {
         if (onSelect) {
             onSelect(nodeState.id);
         }
     };
 
+    const xPos = grid.BUFFER_SIDE + (parseInt(nodeState.posX) * grid.HORIZONTAL_SPACING);
+    const yPos = grid.BUFFER_TOP + (parseInt(nodeState.posY) * grid.VERTICAL_SPACING);
+
     return (
         <div 
             onClick={handleClick}
             style={{
-                position: 'relative',
-                 width: '150px',
-                 height: '100px',
-                left: `${nodeState.posX}px`,
-                top: `${nodeState.posY}px`,
-                
+                position: 'absolute',
+                width: `${grid.NODE_WIDTH}px`,
+                height: `${grid.NODE_HEIGHT}px`,
+                left: `${xPos}px`,
+                top: `${yPos}px`,
                 backgroundColor: nodeState.color,
                 padding: '10px',
                 borderRadius: '5px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                boxSizing: 'border-box'
             }}
         >
             <div>{nodeState.icon}</div>
@@ -35,5 +38,13 @@ export const Node = ({ nodeState, onSelect }) => {
 
 Node.propTypes = {
     nodeState: PropTypes.instanceOf(NodeState).isRequired,
-    onSelect: PropTypes.func.isRequired
+    onSelect: PropTypes.func.isRequired,
+    grid: PropTypes.shape({
+        NODE_WIDTH: PropTypes.number.isRequired,
+        NODE_HEIGHT: PropTypes.number.isRequired,
+        VERTICAL_SPACING: PropTypes.number.isRequired,
+        HORIZONTAL_SPACING: PropTypes.number.isRequired,
+        BUFFER_TOP: PropTypes.number.isRequired,
+        BUFFER_SIDE: PropTypes.number.isRequired
+    }).isRequired
 };

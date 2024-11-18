@@ -167,6 +167,7 @@ export const GraphCanvas = () => {
                     key={nodeState.id}
                     nodeState={nodeState}
                     onSelect={handleNodeSelect}
+                    grid={GRID}
                 />
             ))}
         </div>
