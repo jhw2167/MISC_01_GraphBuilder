@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NodeState } from './NodeState';
 import { NodeOptionsPanel } from './NodeOptionsPanel';
+import { COLORS } from './NodeState';
 
 export const Node = ({ nodeState, grid, isSelected, onOptionChange }) => {
 
@@ -40,11 +41,11 @@ export const Node = ({ nodeState, grid, isSelected, onOptionChange }) => {
                 boxSizing: 'border-box'
             }}
         >
-            <div>
-                <div>{nodeState.icon}</div>
-                <div>{nodeState.title}</div>
-                {nodeState.subtitle && <div>{nodeState.subtitle}</div>}
-                <div>{nodeState.descr}</div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                <div style={{ fontSize: '1.2em' }}>{nodeState.icon}</div>
+                <div style={{ fontWeight: 'bold' }}>{nodeState.title}</div>
+                {nodeState.subtitle && <div style={{ fontSize: '0.9em', color: '#666' }}>{nodeState.subtitle}</div>}
+                <div style={{ fontSize: '0.8em' }}>{nodeState.descr}</div>
             </div>
         </div>
     );

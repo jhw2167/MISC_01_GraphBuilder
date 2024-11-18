@@ -6,7 +6,7 @@ export const NodeOptionsPanel = ({ options, onOptionChange }) => {
     return (
         <div style={{
             position: 'absolute',
-            top: '-80px',
+            top: '-40px',
             left: '50%',
             transform: 'translateX(-50%)',
             backgroundColor: 'white',
