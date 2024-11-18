@@ -28,7 +28,6 @@ export const GraphCanvas = () => {
     //wxh
     const [dimensions, setDimensions] = useState([]);
     const [selected, setSelected] = useState([]); // Array of selected node IDs
-    const [dragging, setDragging] = useState(null);
     const [dummyNode, setDummyNode] = useState(null);
 
     const [currentNodeStates, setCurrentNodeStates] = useState([]);
@@ -140,65 +139,64 @@ export const GraphCanvas = () => {
     };
 
     const handleMouseDown = (e) => {
-       
         if (!Array.isArray(selected) || selected.length === 0) {
             return;
         }
         
         const id = selected[0];
+        if (id === -1) return;
 
-        if(id === -1)
-            return;
-
-        console.log("id" + id);
-        let n = currentNodeStates.find(node => node.id === id);
-        
-
-        if (n) {
-          setDragging(id);
-          let nodeState = NodeState.fromJSON({"id": "dummy",
-             "color": n.color,
-             "posX": n.posX,
-             "posY": n.posY,
-             "title": n.title,
-             "description": n.descr,
-             "icon": n.icon
+        const node = currentNodeStates.find(node => node.id === id);
+        if (node) {
+            let nodeState = NodeState.fromJSON({
+                "id": "dummy",
+                "color": node.color,
+                "posX": node.posX,
+                "posY": node.posY,
+                "title": node.title,
+                "description": node.descr,
+                "icon": node.icon
             });
-          setDummyNode(nodeState);
+            setDummyNode(nodeState);
         }
-      };
+    };
     
-      const handleMouseMove = (e) => {
-        if (dragging && dummyNode) 
-        {
-            //console.log(e.clientX + " " + e.clientY);
+    const handleMouseMove = (e) => {
+        if (dummyNode) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
             
-            setDummyNode(prev => { 
-                let ns = prev;
-                ns.posX = e.clientX - GRID.CONTAINER_BUFFER_SIDE;
-                ns.posY = e.clientY - GRID.CONTAINER_BUFFER_TOP;
-                return ns;
-            });
+            setDummyNode(prev => new NodeState(
+                "dummy",
+                prev.color,
+                x,
+                y,
+                prev.title,
+                prev.subtitle,
+                prev.previous,
+                prev.descr,
+                prev.icon
+            ));
         }
-      };
+    };
     
-      const handleMouseUp = () => {
-        
-        if (dragging && dummyNode) 
-        {
+    const handleMouseUp = () => {
+        if (dummyNode) {
             const snappedPos = snapToGrid(dummyNode.posX, dummyNode.posY);
-
-            let node = currentNodeStates.find(node => node.id === dragging);
-            node.posX = snappedPos.posX;
-            node.posY = snappedPos.posY;
-            setNewNodeStates([node]);
-
+            const originalNode = currentNodeStates.find(node => node.id === selected[0]);
+            
+            if (originalNode) {
+                const updatedNode = structuredClone(originalNode);
+                updatedNode.posX = snappedPos.posX;
+                updatedNode.posY = snappedPos.posY;
+                setNewNodeStates([updatedNode]);
+            }
+            
             setDummyNode(null);
-            setDragging(null);
         }
-        
         setSelected([]);
-      };
+    };
 
       const snapToGrid = (x, y) => {
         const col = Math.round((x - GRID.BUFFER_SIDE) / GRID.HORIZONTAL_SPACING);
@@ -234,7 +232,7 @@ export const GraphCanvas = () => {
         style={{
             border: '1px solid black', 
             position: 'relative',
-          cursor: dragging ? 'grabbing' : 'pointer',
+          cursor: dummyNode ? 'grabbing' : 'pointer',
             width: dimensions[0],
             height: dimensions[1]
         }}
