@@ -413,8 +413,10 @@ export const GraphCanvas = () => {
             height: '90vh',
             overflowX: 'auto',
             position: 'relative',
-            float: 'left'
-            
+            margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
           }}>
         <div  
         style={{
