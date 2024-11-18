@@ -202,15 +202,17 @@ export const GraphCanvas = () => {
             const posX = parseInt(node.posX) * GRID.HORIZONTAL_SPACING + GRID.BUFFER_SIDE;
             const posY = parseInt(node.posY) * GRID.VERTICAL_SPACING + GRID.BUFFER_TOP;
 
-            let nodeState = NodeState.fromJSON({
-                "id": "dummy",
-                "color": node.color,
-                "posX": posX,
-                "posY": posY,
-                "title": node.title,
-                "description": node.descr,
-                "icon": node.icon
-            });
+            let nodeState = new NodeState(
+                "dummy",
+                node.color,
+                posX,
+                posY,
+                node.title,
+                node.subtitle,
+                [],
+                node.descr,
+                node.icon
+            );
             //log the posx and y
             //console.log(node.posX + "  " + node.posY);
             setDummyNode(nodeState);
@@ -223,17 +225,19 @@ export const GraphCanvas = () => {
             const x = e.clientX - rect.left - GRID.NODE_WIDTH / 2;
             const y = e.clientY - rect.top - GRID.NODE_HEIGHT / 2;
             
-            setDummyNode(prev => new NodeState(
-                "dummy",
-                prev.color,
-                x,
-                y,
-                prev.title,
-                prev.subtitle,
-                prev.previous,
-                prev.descr,
-                prev.icon
-            ));
+            if (prev) {
+                setDummyNode(new NodeState(
+                    "dummy",
+                    prev.color,
+                    x,
+                    y,
+                    prev.title,
+                    prev.subtitle,
+                    [],
+                    prev.descr,
+                    prev.icon
+                ));
+            }
         }
     };
     
