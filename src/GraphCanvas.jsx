@@ -27,7 +27,7 @@ export const GraphCanvas = () => {
 
     //wxh
     const [dimensions, setDimensions] = useState([]);
-    const [selected, setSelected] = useState([]);
+    const [selected, setSelected] = useState([]); // Array of selected node IDs
     const [dragging, setDragging] = useState(null);
     const [dummyNode, setDummyNode] = useState(null);
 
@@ -126,30 +126,25 @@ export const GraphCanvas = () => {
     /* Functions */
 
     const handleNodeSelect = (nodeId) => {
-        //check if selcted already contains id:
-        console.log("selected id " + nodeId);
-        if( !selected )
+        if (!Array.isArray(selected)) {
+            setSelected([nodeId]);
             return;
+        }
 
-        //log the object type of selected
-        console.log("selected type " + typeof selected);
-
-        if (selected.indexOf(nodeId) > -1)
+        if (selected.includes(nodeId)) {
             return;
-    
-        setSelected(prev => structuredClone(prev).push(nodeId));
-        console.log("selected type after" + typeof selected);
-        
+        }
+
+        setSelected(prev => [...prev, nodeId]);
     };
 
     const handleMouseDown = (e) => {
        
-        //get the node at the 0 index of selected
-        if(!selected || selected.length == undefined || selected.length === 0)
+        if (!Array.isArray(selected) || selected.length === 0) {
             return;
+        }
         
-        console.log("selected length " + selected.length);
-        let id = selected.length > 0 ? selected[0] : -1;
+        const id = selected[0];
 
         if(id === -1)
             return;
