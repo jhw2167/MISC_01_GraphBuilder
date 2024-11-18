@@ -183,11 +183,10 @@ export const GraphCanvas = () => {
       };
     
       const handleMouseUp = () => {
+        
         if (dragging && dummyNode) 
         {
             const snappedPos = snapToGrid(dummyNode.posX, dummyNode.posY);
-            console.log("snappedPos");
-            console.log(snappedPos);
 
             let node = currentNodeStates.find(node => node.id === dragging);
             node.posX = snappedPos.posX;
@@ -197,6 +196,8 @@ export const GraphCanvas = () => {
             setDummyNode(null);
             setDragging(null);
         }
+        
+        setSelected([]);
       };
 
       const snapToGrid = (x, y) => {
