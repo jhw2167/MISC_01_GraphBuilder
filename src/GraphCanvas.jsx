@@ -109,7 +109,7 @@ export const GraphCanvas = () => {
         if (newNodeStates.length > 0) 
         {
             //map a new array of the current node states pushing the updated state or the existing one
-            newNodes = currentNodeStates.map(node => {
+            let newNodes = currentNodeStates.map(node => {
                 const newNode = newNodeStates.find(n => n.id === node.id);
                 return newNode ? newNode : node;
             });
@@ -126,7 +126,8 @@ export const GraphCanvas = () => {
     /* Functions */
 
     const handleNodeSelect = (nodeId) => {
-        if (!Array.isArray(selected)) {
+
+        if (!selected || !Array.isArray(selected)) {
             setSelected([nodeId]);
             return;
         }
@@ -134,8 +135,8 @@ export const GraphCanvas = () => {
         if (selected.includes(nodeId)) {
             return;
         }
-
-        setSelected(prev => [...prev, nodeId]);
+        let copy = structuredClone(selected);
+        setSelected(copy.push(nodeId));
     };
 
     const handleMouseDown = (e) => {
@@ -236,7 +237,7 @@ export const GraphCanvas = () => {
             width: dimensions[0],
             height: dimensions[1]
         }}
-        //onMouseDown={handleMouseDown}
+        onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
