@@ -499,16 +499,32 @@ export const GraphCanvas = () => {
                     pointerEvents: 'none'
                 }}
             />
-            {currentNodeStates.map(nodeState => (
-                //check type of nodeState
-                <Node 
-                    key={nodeState.id}
-                    nodeState={nodeState}
-                    grid={GRID}
-                    isSelected={isSelected(nodeState.id) || false}
-                    onOptionChange={handleOptionChange}
-                />
-            ))}
+            {currentNodeStates.map(nodeState => {
+                const isNodeSelected = isSelected(nodeState.id) || false;
+                return (
+                    <React.Fragment key={nodeState.id}>
+                        <Node 
+                            nodeState={nodeState}
+                            grid={GRID}
+                            isSelected={isNodeSelected}
+                        />
+                        {isNodeSelected && (
+                            <NodeOptionsPanel 
+                                options={{
+                                    color: Object.keys(COLORS).find(key => COLORS[key] === nodeState.color) || 'grey',
+                                    icon: nodeState.icon
+                                }}
+                                onOptionChange={handleOptionChange}
+                                style={{
+                                    position: 'absolute',
+                                    left: `${GRID.BUFFER_SIDE + (parseInt(nodeState.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2}px`,
+                                    top: `${GRID.BUFFER_TOP + (parseInt(nodeState.posY) * GRID.VERTICAL_SPACING) - 40}px`
+                                }}
+                            />
+                        )}
+                    </React.Fragment>
+                );
+            })}
             
             {dummyNode && (
                 (dummyNode instanceof NodeState) &&

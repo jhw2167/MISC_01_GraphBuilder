@@ -4,7 +4,7 @@ import { NodeState } from './NodeState';
 import { NodeOptionsPanel } from './NodeOptionsPanel';
 import { COLORS } from './NodeState';
 
-export const Node = ({ nodeState, grid, isSelected, onOptionChange }) => {
+export const Node = ({ nodeState, grid, isSelected }) => {
 
     const xPos = grid.BUFFER_SIDE + (parseInt(nodeState.posX) * grid.HORIZONTAL_SPACING);
     const yPos = grid.BUFFER_TOP + (parseInt(nodeState.posY) * grid.VERTICAL_SPACING);

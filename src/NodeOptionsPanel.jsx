@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { COLOR_OPTIONS, ICON_OPTIONS } from './NodeOptions';
 
-export const NodeOptionsPanel = ({ options, onOptionChange }) => {
+export const NodeOptionsPanel = ({ options, onOptionChange, style }) => {
     return (
         <div style={{
             position: 'absolute',
-            top: '-40px',
-            left: '50%',
             transform: 'translateX(-50%)',
+            ...style,
             backgroundColor: 'white',
             border: '1px solid black',
             borderRadius: '5px',
@@ -46,5 +45,6 @@ NodeOptionsPanel.propTypes = {
         color: PropTypes.string.isRequired,
         icon: PropTypes.string.isRequired
     }).isRequired,
-    onOptionChange: PropTypes.func.isRequired
+    onOptionChange: PropTypes.func.isRequired,
+    style: PropTypes.object
 };
