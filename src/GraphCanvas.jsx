@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Node } from './Node';
-import { NodeState } from './NodeState';
+import { NodeState, COLORS } from './NodeState';
 import { DEFAULT_OPTIONS } from './NodeOptions';
 import { NodeOptionsPanel } from './NodeOptionsPanel';
 import initialData from './assets/data.json';
@@ -13,7 +13,7 @@ export const GraphCanvas = () => {
         ROWS: 7,
         COLUMNS: 50,
         NODE_WIDTH: 200,
-        NODE_HEIGHT: 100,
+        NODE_HEIGHT: 140,
         VERTICAL_SPACING: 115,
         HORIZONTAL_SPACING: 250,
         BUFFER_TOP: 30,
@@ -519,7 +519,7 @@ export const GraphCanvas = () => {
                                 style={{
                                     position: 'absolute',
                                     left: `${GRID.BUFFER_SIDE + (parseInt(nodeState.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2}px`,
-                                    top: `${GRID.BUFFER_TOP + (parseInt(nodeState.posY) * GRID.VERTICAL_SPACING) - 40}px`
+                                    top: `${GRID.BUFFER_TOP + (parseInt(nodeState.posY) * GRID.VERTICAL_SPACING) }px`
                                 }}
                             />
                         )}
