@@ -10,17 +10,19 @@ export const GraphCanvas = () => {
 
     /* Constants */
     const GRID = {
-        ROWS: 7,
+        ROWS: 5,
         COLUMNS: 50,
         NODE_WIDTH: 200,
         NODE_HEIGHT: 140,
-        VERTICAL_SPACING: 115,
+        VERTICAL_SPACING: 175,
         HORIZONTAL_SPACING: 250,
         BUFFER_TOP: 30,
         BUFFER_SIDE: 50,
         CONTAINER_BUFFER_TOP: 50,
         CONTAINER_BUFFER_SIDE: 150
       };
+
+    const disableVertexSelection = true;
 
     /* State */
     
@@ -161,7 +163,8 @@ export const GraphCanvas = () => {
     const handleMouseDown = (e) => {
         // Get canvas coordinates
         const canvas = canvasRef.current;
-        if (canvas && selected.length === 1) {
+        if (canvas && selected.length === 1)
+        {
             const rect = canvas.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
@@ -178,6 +181,7 @@ export const GraphCanvas = () => {
         // Find if we clicked on a node
         const nodeElement = e.target.closest('[data-node-id]');
         if (!nodeElement) {
+            console.log("no node element");
             setSelected([]);
             return;
         }
@@ -189,9 +193,14 @@ export const GraphCanvas = () => {
         //if the nodeId is not equal to the id currently selected, call connectNodes and return
         if (selected.length === 1 && selected[0] !== nodeId) 
         {
-            let alreadyConnected = connectNodes(selected[0], nodeId);
-            if(!alreadyConnected)
+            if( connectMode ) 
+            {
+                let alreadyConnected = connectNodes(selected[0], nodeId);
                 return;
+            }
+                
+            
+                
         }
 
         // Select the node
@@ -299,7 +308,10 @@ export const GraphCanvas = () => {
         let sourceLinked = updatedSource.previous.includes(targetId);
 
         if(targetLinked || sourceLinked)
-            return true;
+        {
+            //return true; not this implementation
+        }   
+            
 
         // Determine which node is leftmost
         const sourcePosX = parseInt(sourceNode.posX);
@@ -310,7 +322,8 @@ export const GraphCanvas = () => {
             updatedTarget.previous.push(sourceId);
             setNewNodeStates([updatedTarget]);
         } else {
-          return true;
+            updatedSource.previous.push(targetId);
+            setNewNodeStates([updatedSource]);
         }
         
         return false;
@@ -318,7 +331,9 @@ export const GraphCanvas = () => {
 
       const checkVertexClick = (x, y) => {
         const canvas = canvasRef.current;
-        if (!canvas) return null;
+        
+        if (!canvas || disableVertexSelection) 
+            return null;
 
         for (const [sourceId, targetId] of vertices) {
             const sourceNode = currentNodeStates.find(node => node.id === sourceId);
@@ -424,7 +439,8 @@ export const GraphCanvas = () => {
                 ctx.stroke();
 
                 // Draw delete button if a node is selected
-                if (selected.length === 1) {
+                if (selected.length === 1 && !disableVertexSelection) 
+                {
                     // Calculate midpoint of the path
                     const deleteX = midX;
                     const deleteY = (startY + endY) / 2;
