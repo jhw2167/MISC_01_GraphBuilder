@@ -2,7 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { COLOR_OPTIONS, ICON_OPTIONS } from './NodeOptions';
 
-export const NodeOptionsPanel = ({ options, onOptionChange, style }) => {
+export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onToggleConnectMode, style }) => {
+    const handleCycleOption = (optionKey, currentValue, optionsList) => {
+        const currentIndex = optionsList.findIndex(opt => opt.value === currentValue);
+        const nextIndex = (currentIndex + 1) % optionsList.length;
+        onOptionChange(optionKey, optionsList[nextIndex].value);
+    };
+
     return (
         <div style={{
             position: 'absolute',
@@ -16,26 +22,57 @@ export const NodeOptionsPanel = ({ options, onOptionChange, style }) => {
             display: 'flex',
             gap: '5px'
         }}>
-            <select 
-                value={options.color} 
-                onChange={(e) => onOptionChange('color', e.target.value)}
+            <button 
+                onClick={() => handleCycleOption('color', options.color, COLOR_OPTIONS)}
+                style={{
+                    backgroundColor: COLORS[options.color],
+                    border: '1px solid black',
+                    borderRadius: '3px',
+                    padding: '5px 10px',
+                    cursor: 'pointer'
+                }}
             >
-                {COLOR_OPTIONS.map(option => (
-                    <option key={option.value} value={option.value}>
-                        {option.label}
-                    </option>
-                ))}
-            </select>
-            <select 
-                value={options.icon} 
-                onChange={(e) => onOptionChange('icon', e.target.value)}
+                {COLOR_OPTIONS.find(opt => opt.value === options.color)?.label}
+            </button>
+            <button 
+                onClick={() => handleCycleOption('icon', options.icon, ICON_OPTIONS)}
+                style={{
+                    border: '1px solid black',
+                    borderRadius: '3px',
+                    padding: '5px 10px',
+                    cursor: 'pointer'
+                }}
             >
-                {ICON_OPTIONS.map(option => (
-                    <option key={option.value} value={option.value}>
-                        {option.label} {option.value}
-                    </option>
-                ))}
-            </select>
+                {options.icon}
+            </button>
+            <button 
+                onClick={onDisconnectAll}
+                style={{
+                    backgroundColor: '#ffcccc',
+                    border: '1px solid red',
+                    borderRadius: '3px',
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                    color: 'red',
+                    fontWeight: 'bold'
+                }}
+            >
+                ❌
+            </button>
+            <button 
+                onClick={onToggleConnectMode}
+                style={{
+                    backgroundColor: '#ccffcc',
+                    border: '1px solid green',
+                    borderRadius: '3px',
+                    padding: '5px 10px',
+                    cursor: 'pointer',
+                    color: 'green',
+                    fontWeight: 'bold'
+                }}
+            >
+                ✓
+            </button>
         </div>
     );
 };
@@ -46,5 +83,7 @@ NodeOptionsPanel.propTypes = {
         icon: PropTypes.string.isRequired
     }).isRequired,
     onOptionChange: PropTypes.func.isRequired,
+    onDisconnectAll: PropTypes.func.isRequired,
+    onToggleConnectMode: PropTypes.func.isRequired,
     style: PropTypes.object
 };

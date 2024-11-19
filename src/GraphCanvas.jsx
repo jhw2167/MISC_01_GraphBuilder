@@ -32,6 +32,7 @@ export const GraphCanvas = () => {
     //wxh
     const [dimensions, setDimensions] = useState([]);
     const [selected, setSelected] = useState([]); // Array of selected node IDs
+    const [connectMode, setConnectMode] = useState(false);
     const [dummyNode, setDummyNode] = useState(null);
 
     const [currentNodeStates, setCurrentNodeStates] = useState([]);
@@ -516,6 +517,13 @@ export const GraphCanvas = () => {
                                     icon: nodeState.icon
                                 }}
                                 onOptionChange={handleOptionChange}
+                                onDisconnectAll={() => {
+                                    const updatedNode = structuredClone(nodeState);
+                                    updatedNode.previous = [];
+                                    setNewNodeStates([updatedNode]);
+                                    setVertices(vertices.filter(([s, t]) => t !== nodeState.id));
+                                }}
+                                onToggleConnectMode={() => setConnectMode(!connectMode)}
                                 style={{
                                     position: 'absolute',
                                     left: `${GRID.BUFFER_SIDE + (parseInt(nodeState.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2}px`,
