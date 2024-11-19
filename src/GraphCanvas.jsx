@@ -63,7 +63,7 @@ export const GraphCanvas = () => {
         let data = initialData.nodes;
         let initialNodeStates = data.map(node => NodeState.fromJSON(node));
 
-        let useTechData = true;
+        let useTechData = false;
         if(useTechData)
         {
             data = techData.technologies;
@@ -102,6 +102,7 @@ export const GraphCanvas = () => {
         } else {
             setSelectedNodeOptions(null);
             setShowOptionsPanel(false);
+            setConnectMode(false);
         }
     }, [selected, currentNodeStates]);
 
@@ -191,7 +192,7 @@ export const GraphCanvas = () => {
         }
 
         //if an option is hovered, return
-        console.log(optionHovered);
+        //console.log(optionHovered);
         if (optionHovered) 
             return;
 
@@ -214,10 +215,13 @@ export const GraphCanvas = () => {
             if( connectMode ) 
             {
                 let alreadyConnected = connectNodes(selected[0], nodeId);
-                return;
-            }
+                if(alreadyConnected) {
+                    //skip return
+                } else {
+                    return;
+                }
                 
-            
+            }
                 
         }
 
@@ -327,7 +331,7 @@ export const GraphCanvas = () => {
 
         if(targetLinked || sourceLinked)
         {
-            //return true; not this implementation
+            return true; //short circuit if the nodes are already connected
         }   
             
 
@@ -571,6 +575,7 @@ export const GraphCanvas = () => {
                                 onDisconnectAll={() => {
                                     const updatedNode = structuredClone(nodeState);
                                     updatedNode.previous = [];
+                                    console.log(updatedNode);
                                     setNewNodeStates([updatedNode]);
                                 }}
                                 onToggleConnectMode={() => setConnectMode(!connectMode)}
