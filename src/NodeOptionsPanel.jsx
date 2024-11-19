@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { COLORS } from './NodeState';
 import { COLOR_OPTIONS, ICON_OPTIONS } from './NodeOptions';
 
 export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onToggleConnectMode, style }) => {
