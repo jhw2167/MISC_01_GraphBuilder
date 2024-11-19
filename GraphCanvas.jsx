@@ -536,9 +536,22 @@ export const GraphCanvas = () => {
                                 onOptionChange={handleOptionChange}
                                 onDisconnectAll={() => {
                                     const updatedNode = structuredClone(nodeState);
+                                    // Clear this node's previous connections
                                     updatedNode.previous = [];
-                                    setNewNodeStates([updatedNode]);
-                                    setVertices(vertices.filter(([s, t]) => t !== nodeState.id));
+                                    // Remove this node from other nodes' previous arrays
+                                    updatedNode.updateDisconnectAll(currentNodeStates);
+                                    // Update all affected nodes
+                                    const updatedNodes = currentNodeStates.map(node => {
+                                        if (node.id === updatedNode.id) return updatedNode;
+                                        if (node.previous) {
+                                            const newNode = structuredClone(node);
+                                            newNode.previous = newNode.previous.filter(prevId => prevId !== nodeState.id);
+                                            return newNode;
+                                        }
+                                        return node;
+                                    });
+                                    setNewNodeStates(updatedNodes);
+                                    setVertices(vertices.filter(([s, t]) => t !== nodeState.id && s !== nodeState.id));
                                 }}
                                 onToggleConnectMode={() => setConnectMode(!connectMode)}
                                 onOptionHover={setOptionHovered}
