@@ -1,4 +1,4 @@
-const COLORS = {
+export const COLORS = {
     "blue": "#bfdbfe",
     "red": "#fecaca",
     "green": "#bbf7d0",
@@ -37,5 +37,17 @@ export class NodeState {
         );
     }
 
-    //create a constructor from another nodeState and 
+    static fromJSONTechTree(jsonNode) {
+        return new NodeState(
+            jsonNode.id,
+            jsonNode.color || "#e2e8f0",
+            jsonNode.col || "0",
+            jsonNode.row || "0",
+            jsonNode.title || "",
+            jsonNode.subtitle || "", // subtitle not in JSON
+            jsonNode.requiredTechs|| [],
+            jsonNode.description || "",
+            jsonNode.icon || "📄"
+        );
+    }
 }

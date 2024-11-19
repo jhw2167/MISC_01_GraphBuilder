@@ -1,0 +1,814 @@
+{
+    "technologies": [
+      {
+        "id": "001",
+        "title": "Woodworking",
+        "subtitle": "Early Age",
+        "color": "brown",
+        "requiredTechs": [],
+        "trigger": "",
+        "col": 0,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "002",
+        "title": "Flint Tools",
+        "subtitle": "Early Age",
+        "color": "grey",
+        "requiredTechs": ["001"],
+        "trigger": "",
+        "col": 1,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "003",
+        "title": "Writing",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["001"],
+        "trigger": "",
+        "col": 1,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "004",
+        "title": "Mathematics",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["003"],
+        "trigger": "",
+        "col": 2,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "005",
+        "title": "Currency",
+        "subtitle": "Early Age",
+        "color": "yellow",
+        "requiredTechs": ["003", "004"],
+        "trigger": "",
+        "col": 3,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "006",
+        "title": "Kiln",
+        "subtitle": "Early Age",
+        "color": "red",
+        "requiredTechs": ["002"],
+        "trigger": "",
+        "col": 2,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "007",
+        "title": "Copper Tools",
+        "subtitle": "Early Age",
+        "color": "grey",
+        "requiredTechs": ["002", "006"],
+        "trigger": "",
+        "col": 3,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "008",
+        "title": "Smeltery",
+        "subtitle": "Early Age",
+        "color": "red",
+        "requiredTechs": ["006"],
+        "trigger": "",
+        "col": 3,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "009",
+        "title": "Drama and Poetry",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["003"],
+        "trigger": "",
+        "col": 3,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "010",
+        "title": "Philosophy",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["004", "009"],
+        "trigger": "",
+        "col": 4,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "011",
+        "title": "Bronze Tools",
+        "subtitle": "Early Age",
+        "color": "grey",
+        "requiredTechs": ["007", "008"],
+        "trigger": "",
+        "col": 4,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "012",
+        "title": "Iron Tools",
+        "subtitle": "Early Age",
+        "color": "grey",
+        "requiredTechs": ["008"],
+        "trigger": "",
+        "col": 4,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "013",
+        "title": "Sailing",
+        "subtitle": "Early Age",
+        "color": "blue",
+        "requiredTechs": ["001", "011"],
+        "trigger": "",
+        "col": 5,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "014",
+        "title": "Natural Power",
+        "subtitle": "Early Age",
+        "color": "green",
+        "requiredTechs": ["013"],
+        "trigger": "",
+        "col": 6,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "015",
+        "title": "Theology",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["010"],
+        "trigger": "",
+        "col": 5,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "016",
+        "title": "Gun Powder",
+        "subtitle": "Early Age",
+        "color": "red",
+        "requiredTechs": ["012"],
+        "trigger": "",
+        "col": 5,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "017",
+        "title": "Steam Engine",
+        "subtitle": "Early Age",
+        "color": "red",
+        "requiredTechs": ["014", "016"],
+        "trigger": "",
+        "col": 7,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "018",
+        "title": "Scientific Theory",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["010", "015"],
+        "trigger": "",
+        "col": 6,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "019",
+        "title": "Primitive Blast Furnace",
+        "subtitle": "Early Age",
+        "color": "red",
+        "requiredTechs": ["012"],
+        "trigger": "",
+        "col": 6,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "020",
+        "title": "Steel Tools",
+        "subtitle": "Early Age",
+        "color": "grey",
+        "requiredTechs": ["019"],
+        "trigger": "",
+        "col": 7,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "021",
+        "title": "Industrial Blast Furnace",
+        "subtitle": "Industrial Age",
+        "color": "red",
+        "requiredTechs": ["019", "017"],
+        "trigger": "",
+        "col": 11,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "022",
+        "title": "Diamond Tools",
+        "subtitle": "Industrial Age",
+        "color": "grey",
+        "requiredTechs": ["020"],
+        "trigger": "",
+        "col": 11,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "023",
+        "title": "Mass Media",
+        "subtitle": "Industrial Age",
+        "color": "purple",
+        "requiredTechs": ["018"],
+        "trigger": "",
+        "col": 11,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "024",
+        "title": "Electricity",
+        "subtitle": "Industrial Age",
+        "color": "yellow",
+        "requiredTechs": ["017", "021"],
+        "trigger": "",
+        "col": 12,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "025",
+        "title": "Primitive Battery",
+        "subtitle": "Industrial Age",
+        "color": "yellow",
+        "requiredTechs": ["024"],
+        "trigger": "",
+        "col": 13,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "026",
+        "title": "Electric Motor",
+        "subtitle": "Industrial Age",
+        "color": "yellow",
+        "requiredTechs": ["025"],
+        "trigger": "",
+        "col": 14,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "027",
+        "title": "Photo-Voltaics",
+        "subtitle": "Industrial Age",
+        "color": "green",
+        "requiredTechs": ["024"],
+        "trigger": "",
+        "col": 13,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "028",
+        "title": "Compressor",
+        "subtitle": "Industrial Age",
+        "color": "blue",
+        "requiredTechs": ["022", "026"],
+        "trigger": "",
+        "col": 15,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "029",
+        "title": "Nether Portal",
+        "subtitle": "Industrial Age",
+        "color": "red",
+        "requiredTechs": ["028"],
+        "trigger": "",
+        "col": 16,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "030",
+        "title": "Netherite Tools",
+        "subtitle": "Industrial Age",
+        "color": "grey",
+        "requiredTechs": ["029", "021"],
+        "trigger": "",
+        "col": 17,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "031",
+        "title": "Circuits I",
+        "subtitle": "Industrial Age",
+        "color": "yellow",
+        "requiredTechs": ["026"],
+        "trigger": "",
+        "col": 15,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "032",
+        "title": "Batteries",
+        "subtitle": "Industrial Age",
+        "color": "yellow",
+        "requiredTechs": ["025", "031"],
+        "trigger": "",
+        "col": 16,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "033",
+        "title": "Circuits II",
+        "subtitle": "Industrial Age",
+        "color": "yellow",
+        "requiredTechs": ["031"],
+        "trigger": "",
+        "col": 17,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "034",
+        "title": "Electric Blast Furnace",
+        "subtitle": "Industrial Age",
+        "color": "red",
+        "requiredTechs": ["033", "021"],
+        "trigger": "",
+        "col": 18,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "035",
+        "title": "Chemistry",
+        "subtitle": "Industrial Age",
+        "color": "blue",
+        "requiredTechs": ["033"],
+        "trigger": "",
+        "col": 18,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "036",
+        "title": "Genetic Editing",
+        "subtitle": "Industrial Age",
+        "color": "green",
+        "requiredTechs": ["035"],
+        "trigger": "",
+        "col": 19,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "037",
+        "title": "Nuclear Reactor",
+        "subtitle": "Industrial Age",
+        "color": "red",
+        "requiredTechs": ["034", "035"],
+        "trigger": "",
+        "col": 19,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "038",
+        "title": "Space Elevator",
+        "subtitle": "Space Age",
+        "color": "blue",
+        "requiredTechs": ["037"],
+        "trigger": "",
+        "col": 22,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+    },
+    {
+        "id": "039",
+        "title": "Circuits III",
+        "subtitle": "Space Age",
+        "color": "yellow",
+        "requiredTechs": ["033", "038"],
+        "trigger": "",
+        "col": 23,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "040",
+        "title": "Quantum Armor",
+        "subtitle": "Space Age",
+        "color": "grey",
+        "requiredTechs": ["039"],
+        "trigger": "",
+        "col": 24,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "041",
+        "title": "Hadron Collider",
+        "subtitle": "Space Age",
+        "color": "blue",
+        "requiredTechs": ["039"],
+        "trigger": "",
+        "col": 24,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "042",
+        "title": "Player Teleportation",
+        "subtitle": "Space Age",
+        "color": "purple",
+        "requiredTechs": ["039"],
+        "trigger": "",
+        "col": 24,
+        "row": 3,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "043",
+        "title": "Item Teleportation",
+        "subtitle": "Space Age",
+        "color": "purple",
+        "requiredTechs": ["042"],
+        "trigger": "",
+        "col": 25,
+        "row": 3,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "044",
+        "title": "Fusion Reactor",
+        "subtitle": "Space Age",
+        "color": "red",
+        "requiredTechs": ["037", "041"],
+        "trigger": "",
+        "col": 25,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "045",
+        "title": "Antimatter Batteries",
+        "subtitle": "Space Age",
+        "color": "yellow",
+        "requiredTechs": ["041", "044"],
+        "trigger": "",
+        "col": 26,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "046",
+        "title": "Ion Thrusters",
+        "subtitle": "Space Age",
+        "color": "blue",
+        "requiredTechs": ["044"],
+        "trigger": "",
+        "col": 26,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "047",
+        "title": "Spice Harvesting",
+        "subtitle": "Space Age",
+        "color": "green",
+        "requiredTechs": ["038"],
+        "trigger": "",
+        "col": 23,
+        "row": 4,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "048",
+        "title": "Dragon Steel",
+        "subtitle": "Space Age",
+        "color": "grey",
+        "requiredTechs": ["040", "047"],
+        "trigger": "",
+        "col": 25,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "049",
+        "title": "Blue Beetle Armor",
+        "subtitle": "Space Age",
+        "color": "grey",
+        "requiredTechs": ["048"],
+        "trigger": "",
+        "col": 26,
+        "row": 0,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "050",
+        "title": "Aether Dimension",
+        "subtitle": "Future Age",
+        "color": "purple",
+        "requiredTechs": ["043", "045"],
+        "trigger": "",
+        "col": 29,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "051",
+        "title": "Advanced Player Teleportation",
+        "subtitle": "Future Age",
+        "color": "purple",
+        "requiredTechs": ["043", "050"],
+        "trigger": "",
+        "col": 30,
+        "row": 2,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "052",
+        "title": "Light Speed Travel",
+        "subtitle": "Future Age",
+        "color": "blue",
+        "requiredTechs": ["046", "045"],
+        "trigger": "",
+        "col": 30,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "053",
+        "title": "AI",
+        "subtitle": "Future Age",
+        "color": "yellow",
+        "requiredTechs": ["039", "045"],
+        "trigger": "",
+        "col": 29,
+        "row": 3,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "054",
+        "title": "Advanced Weaponry",
+        "subtitle": "Future Age",
+        "color": "red",
+        "requiredTechs": ["052", "053"],
+        "trigger": "",
+        "col": 31,
+        "row": 1,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      }
+    ]
+}

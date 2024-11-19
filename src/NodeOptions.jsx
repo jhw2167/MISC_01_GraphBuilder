@@ -1,3 +1,5 @@
+import { COLORS } from './NodeState';
+
 export const DEFAULT_OPTIONS = {
     color: "grey",
     icon: "📄",

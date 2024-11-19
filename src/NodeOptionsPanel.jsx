@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { COLORS } from './NodeState';
 import { COLOR_OPTIONS, ICON_OPTIONS } from './NodeOptions';
 
-export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onToggleConnectMode, style }) => {
+export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onToggleConnectMode, onOptionHover, style }) => {
     const handleCycleOption = (optionKey, currentValue, optionsList) => {
         const currentIndex = optionsList.findIndex(opt => opt.value === currentValue);
         const nextIndex = (currentIndex + 1) % optionsList.length;

@@ -13,8 +13,8 @@ export const GraphCanvas = () => {
         ROWS: 5,
         COLUMNS: 50,
         NODE_WIDTH: 200,
-        NODE_HEIGHT: 110,
-        VERTICAL_SPACING: 160,
+        NODE_HEIGHT: 140,
+        VERTICAL_SPACING: 175,
         HORIZONTAL_SPACING: 250,
         BUFFER_TOP: 30,
         BUFFER_SIDE: 50,
@@ -178,16 +178,11 @@ export const GraphCanvas = () => {
             }
         }
 
-        //if an option is hovered, return
-        console.log(optionHovered);
-        if (optionHovered) 
-            return;
 
         // Find if we clicked on a node
         const nodeElement = e.target.closest('[data-node-id]');
-        if (!nodeElement) 
-        {
-            //console.log("no node element");
+        if (!nodeElement) {
+            console.log("no node element");
             setSelected([]);
             return;
         }
@@ -378,7 +373,7 @@ export const GraphCanvas = () => {
             const updatedTarget = structuredClone(targetNode);
             updatedTarget.previous = updatedTarget.previous.filter(id => id !== sourceId);
             setNewNodeStates([updatedTarget]);
-            //setVertices(vertices.filter(([s, t]) => !(s === sourceId && t === targetId)));
+            setVertices(vertices.filter(([s, t]) => !(s === sourceId && t === targetId)));
         }
     };
 
@@ -543,13 +538,14 @@ export const GraphCanvas = () => {
                                     const updatedNode = structuredClone(nodeState);
                                     updatedNode.previous = [];
                                     setNewNodeStates([updatedNode]);
+                                    setVertices(vertices.filter(([s, t]) => t !== nodeState.id));
                                 }}
                                 onToggleConnectMode={() => setConnectMode(!connectMode)}
-                                onOptionHover={(opt) => setOptionHovered(opt)}
+                                onOptionHover={setOptionHovered}
                                 style={{
                                     position: 'absolute',
                                     left: `${GRID.BUFFER_SIDE + (parseInt(nodeState.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2}px`,
-                                    top: `${GRID.BUFFER_TOP + (parseInt(nodeState.posY) * GRID.VERTICAL_SPACING) - 48 }px`
+                                    top: `${GRID.BUFFER_TOP + (parseInt(nodeState.posY) * GRID.VERTICAL_SPACING) }px`
                                 }}
                             />
                         )}
