@@ -516,7 +516,8 @@ export const GraphCanvas = () => {
                 style={{
                     position: 'absolute',
                     top: 0,
-                    left: 0              
+                    left: 0,
+                    pointerEvents: selected.length === 1 ? 'auto' : 'none'              
                 }}
 
                 onMouseDown={handleMouseDown}
