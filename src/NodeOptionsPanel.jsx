@@ -24,30 +24,46 @@ export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onT
             gap: '5px'
         }}>
             <button 
-                onClick={() => handleCycleOption('color', options.color, COLOR_OPTIONS)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    handleCycleOption('color', options.color, COLOR_OPTIONS);
+                }}
                 style={{
                     backgroundColor: COLORS[options.color],
                     border: '1px solid black',
                     borderRadius: '3px',
                     padding: '5px 10px',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    ':hover': {
+                        outline: '2px solid #666'
+                    }
                 }}
+                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
+                onMouseOut={e => e.currentTarget.style.outline = 'none'}
             >
                 {COLOR_OPTIONS.find(opt => opt.value === options.color)?.label}
             </button>
             <button 
-                onClick={() => handleCycleOption('icon', options.icon, ICON_OPTIONS)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    handleCycleOption('icon', options.icon, ICON_OPTIONS);
+                }}
                 style={{
                     border: '1px solid black',
                     borderRadius: '3px',
                     padding: '5px 10px',
                     cursor: 'pointer'
                 }}
+                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
+                onMouseOut={e => e.currentTarget.style.outline = 'none'}
             >
                 {options.icon}
             </button>
             <button 
-                onClick={onDisconnectAll}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onDisconnectAll();
+                }}
                 style={{
                     backgroundColor: '#ffcccc',
                     border: '1px solid red',
@@ -57,11 +73,16 @@ export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onT
                     color: 'red',
                     fontWeight: 'bold'
                 }}
+                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
+                onMouseOut={e => e.currentTarget.style.outline = 'none'}
             >
                 ❌
             </button>
             <button 
-                onClick={onToggleConnectMode}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleConnectMode();
+                }}
                 style={{
                     backgroundColor: '#ccffcc',
                     border: '1px solid green',
@@ -71,6 +92,8 @@ export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onT
                     color: 'green',
                     fontWeight: 'bold'
                 }}
+                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
+                onMouseOut={e => e.currentTarget.style.outline = 'none'}
             >
                 ✓
             </button>
