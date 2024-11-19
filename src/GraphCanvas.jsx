@@ -505,12 +505,9 @@ export const GraphCanvas = () => {
             position: 'relative',
             cursor: dummyNode ? 'grabbing' : 'pointer',
             width: dimensions[0],
-            height: dimensions[1]
-        }}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
+            height: dimensions[1],
+            pointerEvents: 'inherit'
+        }}   
       >
             <canvas
                 ref={canvasRef}
@@ -519,9 +516,13 @@ export const GraphCanvas = () => {
                 style={{
                     position: 'absolute',
                     top: 0,
-                    left: 0,
-                    pointerEvents: 'none'
+                    left: 0              
                 }}
+
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseLeave}
             />
             {currentNodeStates.map(nodeState => {
                 const isNodeSelected = isSelected(nodeState.id) || false;
