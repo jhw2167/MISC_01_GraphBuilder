@@ -35,6 +35,7 @@ export const GraphCanvas = () => {
     const [dimensions, setDimensions] = useState([]);
     const [selected, setSelected] = useState([]); // Array of selected node IDs
     const [connectMode, setConnectMode] = useState(false);
+    const [optionHovered, setOptionHovered] = useState(null);
     const [dummyNode, setDummyNode] = useState(null);
 
     const [currentNodeStates, setCurrentNodeStates] = useState([]);
@@ -540,6 +541,7 @@ export const GraphCanvas = () => {
                                     setVertices(vertices.filter(([s, t]) => t !== nodeState.id));
                                 }}
                                 onToggleConnectMode={() => setConnectMode(!connectMode)}
+                                onOptionHover={setOptionHovered}
                                 style={{
                                     position: 'absolute',
                                     left: `${GRID.BUFFER_SIDE + (parseInt(nodeState.posX) * GRID.HORIZONTAL_SPACING) + GRID.NODE_WIDTH/2}px`,

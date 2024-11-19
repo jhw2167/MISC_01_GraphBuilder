@@ -38,8 +38,14 @@ export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onT
                         outline: '2px solid #666'
                     }
                 }}
-                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
-                onMouseOut={e => e.currentTarget.style.outline = 'none'}
+                onMouseOver={e => {
+                    e.currentTarget.style.outline = '2px solid #666';
+                    onOptionHover('color');
+                }}
+                onMouseOut={e => {
+                    e.currentTarget.style.outline = 'none';
+                    onOptionHover(null);
+                }}
             >
                 {COLOR_OPTIONS.find(opt => opt.value === options.color)?.label}
             </button>
@@ -54,8 +60,14 @@ export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onT
                     padding: '5px 10px',
                     cursor: 'pointer'
                 }}
-                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
-                onMouseOut={e => e.currentTarget.style.outline = 'none'}
+                onMouseOver={e => {
+                    e.currentTarget.style.outline = '2px solid #666';
+                    onOptionHover('icon');
+                }}
+                onMouseOut={e => {
+                    e.currentTarget.style.outline = 'none';
+                    onOptionHover(null);
+                }}
             >
                 {options.icon}
             </button>
@@ -73,8 +85,14 @@ export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onT
                     color: 'red',
                     fontWeight: 'bold'
                 }}
-                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
-                onMouseOut={e => e.currentTarget.style.outline = 'none'}
+                onMouseOver={e => {
+                    e.currentTarget.style.outline = '2px solid #666';
+                    onOptionHover('disconnect');
+                }}
+                onMouseOut={e => {
+                    e.currentTarget.style.outline = 'none';
+                    onOptionHover(null);
+                }}
             >
                 ❌
             </button>
@@ -92,8 +110,14 @@ export const NodeOptionsPanel = ({ options, onOptionChange, onDisconnectAll, onT
                     color: 'green',
                     fontWeight: 'bold'
                 }}
-                onMouseOver={e => e.currentTarget.style.outline = '2px solid #666'}
-                onMouseOut={e => e.currentTarget.style.outline = 'none'}
+                onMouseOver={e => {
+                    e.currentTarget.style.outline = '2px solid #666';
+                    onOptionHover('connect');
+                }}
+                onMouseOut={e => {
+                    e.currentTarget.style.outline = 'none';
+                    onOptionHover(null);
+                }}
             >
                 ✓
             </button>
@@ -109,5 +133,6 @@ NodeOptionsPanel.propTypes = {
     onOptionChange: PropTypes.func.isRequired,
     onDisconnectAll: PropTypes.func.isRequired,
     onToggleConnectMode: PropTypes.func.isRequired,
+    onOptionHover: PropTypes.func.isRequired,
     style: PropTypes.object
 };
