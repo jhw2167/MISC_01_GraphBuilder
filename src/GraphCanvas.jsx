@@ -506,7 +506,7 @@ export const GraphCanvas = () => {
             cursor: dummyNode ? 'grabbing' : 'pointer',
             width: dimensions[0],
             height: dimensions[1],
-            pointerEvents: 'inherit'
+            pointerEvents: 'all'
         }}   
       >
             <canvas
@@ -517,7 +517,7 @@ export const GraphCanvas = () => {
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    pointerEvents: selected.length === 1 ? 'auto' : 'none'              
+                    pointerEvents: selected.length === 1 && !optionHovered ? 'auto' : 'none'              
                 }}
 
                 onMouseDown={handleMouseDown}
