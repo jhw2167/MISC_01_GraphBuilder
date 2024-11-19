@@ -50,4 +50,13 @@ export class NodeState {
             jsonNode.icon || "📄"
         );
     }
+
+    updateDisconnectAll(allNodes) {
+        // Remove this node's ID from all other nodes' previous arrays
+        allNodes.forEach(node => {
+            if (node.previous) {
+                node.previous = node.previous.filter(prevId => prevId !== this.id);
+            }
+        });
+    }
 }
