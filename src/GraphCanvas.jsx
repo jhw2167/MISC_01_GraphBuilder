@@ -159,6 +159,18 @@ export const GraphCanvas = () => {
 
 
     /* Functions */
+    const exportToJson = () => {
+        const dataStr = JSON.stringify(currentNodeStates, null, 2);
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'out.json';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        URL.revokeObjectURL(url);
+    };
 
 
     const handleMouseDown = (e) => {
@@ -499,6 +511,23 @@ export const GraphCanvas = () => {
             justifyContent: 'center',
             alignItems: 'center'
           }}>
+            <button
+                onClick={exportToJson}
+                style={{
+                    position: 'absolute',
+                    left: '1rem',
+                    top: '1rem',
+                    padding: '0.5rem 1rem',
+                    backgroundColor: '#4CAF50',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    zIndex: 1000
+                }}
+            >
+                Export JSON
+            </button>
         <div  
         style={{
             //border: '1px solid black', 
