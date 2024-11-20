@@ -9,12 +9,14 @@ import techData from './assets/techTree.json';
 export const GraphCanvas = () => {
 
     /* Constants */
+
+    //CONSTANTS
     const GRID = {
-        ROWS: 5,
+        ROWS: 7,
         COLUMNS: 50,
         NODE_WIDTH: 200,
-        NODE_HEIGHT: 110,
-        VERTICAL_SPACING: 160,
+        NODE_HEIGHT: 90,
+        VERTICAL_SPACING: 135,
         HORIZONTAL_SPACING: 250,
         BUFFER_TOP: 30,
         BUFFER_SIDE: 50,
@@ -60,7 +62,7 @@ export const GraphCanvas = () => {
 
     // Initial data load
     useEffect(() => {
-        let data = initialData.nodes;
+        let data = initialData;
         let initialNodeStates = data.map(node => NodeState.fromJSON(node));
 
         let useTechData = false;
@@ -112,7 +114,8 @@ export const GraphCanvas = () => {
         //Log the current node states as json
         if(currentNodeStates.length > 0)
         {
-            //console.log(JSON.stringify(currentNodeStates, null, 2));
+            //PRINT
+            //console.log(JSON.stringify(currentNodeStates[0], null, 2));
         }
             
 
@@ -576,12 +579,11 @@ export const GraphCanvas = () => {
                                     const updatedNode = structuredClone(nodeState);
                                     // Clear this node's previous connections
                                     updatedNode.previous = [];
-                                    // Remove this node from other nodes' previous arrays
-                                    updatedNode.updateDisconnectAll(currentNodeStates);
+                                    
                                     // Update all affected nodes
                                     const updatedNodes = currentNodeStates.map(node => {
                                         if (node.id === updatedNode.id) return updatedNode;
-                                        if (node.previous) {
+                                        if (node.previous && node.previous.includes(nodeState.id)) {
                                             const newNode = structuredClone(node);
                                             newNode.previous = newNode.previous.filter(prevId => prevId !== nodeState.id);
                                             return newNode;

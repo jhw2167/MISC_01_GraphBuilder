@@ -809,6 +809,246 @@
           "toolTip": "",
           "image": ""
         }
+      },
+      {
+        "id": "055",
+        "title": "Agriculture",
+        "subtitle": "Early Age",
+        "color": "green",
+        "requiredTechs": ["001"],
+        "trigger": "",
+        "col": 1,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "056",
+        "title": "Fertilizer I",
+        "subtitle": "Early Age",
+        "color": "green",
+        "requiredTechs": ["055"],
+        "trigger": "",
+        "col": 2,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "057",
+        "title": "Animal Husbandry",
+        "subtitle": "Early Age",
+        "color": "green",
+        "requiredTechs": ["055"],
+        "trigger": "",
+        "col": 2,
+        "row": 6,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "058",
+        "title": "Selective Breeding",
+        "subtitle": "Early Age",
+        "color": "green",
+        "requiredTechs": ["056", "057"],
+        "trigger": "",
+        "col": 3,
+        "row": 6,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "059",
+        "title": "Genetics",
+        "subtitle": "Industrial Age",
+        "color": "green",
+        "requiredTechs": ["058"],
+        "trigger": "",
+        "col": 4,
+        "row": 6,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "060",
+        "title": "Genetic Engineering",
+        "subtitle": "Industrial Age",
+        "color": "green",
+        "requiredTechs": ["059"],
+        "trigger": "",
+        "col": 5,
+        "row": 6,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "061",
+        "title": "Animal Synthetics",
+        "subtitle": "Industrial Age",
+        "color": "green",
+        "requiredTechs": ["060"],
+        "trigger": "",
+        "col": 6,
+        "row": 6,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "062",
+        "title": "Glass Blowing",
+        "subtitle": "Early Age",
+        "color": "blue",
+        "requiredTechs": ["001", "002"],
+        "trigger": "",
+        "col": 3,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "063",
+        "title": "Mysticism",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["015"],
+        "trigger": "",
+        "col": 6,
+        "row": 5,
+        "metadata": {
+          "description": "Receive a blessing from a shrine",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "064",
+        "title": "Alchemy",
+        "subtitle": "Early Age",
+        "color": "purple",
+        "requiredTechs": ["063"],
+        "trigger": "",
+        "col": 7,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "065",
+        "title": "Transmutation I",
+        "subtitle": "Industrial Age",
+        "color": "purple",
+        "requiredTechs": ["064"],
+        "trigger": "",
+        "col": 8,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "066",
+        "title": "Transmutation II",
+        "subtitle": "Industrial Age",
+        "color": "purple",
+        "requiredTechs": ["065"],
+        "trigger": "",
+        "col": 9,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "067",
+        "title": "Architecture",
+        "subtitle": "Early Age",
+        "color": "blue",
+        "requiredTechs": ["001", "004"],
+        "trigger": "",
+        "col": 5,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "068",
+        "title": "Engineering",
+        "subtitle": "Industrial Age",
+        "color": "blue",
+        "requiredTechs": ["067"],
+        "trigger": "",
+        "col": 11,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "069",
+        "title": "Advanced Engineering",
+        "subtitle": "Industrial Age",
+        "color": "blue",
+        "requiredTechs": ["068"],
+        "trigger": "",
+        "col": 12,
+        "row": 5,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
+      },
+      {
+        "id": "070",
+        "title": "The End Portal",
+        "subtitle": "Industrial Age",
+        "color": "purple",
+        "requiredTechs": ["029", "063"],
+        "trigger": "",
+        "col": 18,
+        "row": 3,
+        "metadata": {
+          "description": "",
+          "toolTip": "",
+          "image": ""
+        }
       }
     ]
 }

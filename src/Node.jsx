@@ -33,7 +33,7 @@ export const Node = ({ nodeState, grid, isSelected }) => {
             }}
         >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <div style={{ fontSize: '1.2em' }}>{nodeState.icon}</div>
+                {/*<div style={{ fontSize: '1.2em' }}>{nodeState.icon}</div>*/}
                 <div style={{ fontWeight: 'bold' }}>{nodeState.title}</div>
                 {nodeState.subtitle && <div style={{ fontSize: '0.9em', color: '#666' }}>{nodeState.subtitle}</div>}
                 <div style={{ fontSize: '0.8em' }}>{nodeState.descr}</div>
