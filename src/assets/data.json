@@ -38,12 +38,12 @@
   {
     "id": "004",
     "color": "#e9d5ff",
-    "posX": 7,
-    "posY": 5,
+    "posX": 10,
+    "posY": 6,
     "title": "Mathematics",
     "subtitle": "Early Age",
     "previous": [
-      "010"
+      "005"
     ],
     "descr": "",
     "icon": "📄"
@@ -51,12 +51,12 @@
   {
     "id": "005",
     "color": "#e9d5ff",
-    "posX": 9,
+    "posX": 8,
     "posY": 6,
     "title": "Currency",
     "subtitle": "Early Age",
     "previous": [
-      "004"
+      "010"
     ],
     "descr": "",
     "icon": "📄"
@@ -116,8 +116,8 @@
   {
     "id": "010",
     "color": "#e9d5ff",
-    "posX": "6",
-    "posY": "6",
+    "posX": 6,
+    "posY": 6,
     "title": "Philosophy",
     "subtitle": "Early Age",
     "previous": [
@@ -129,8 +129,8 @@
   {
     "id": "011",
     "color": "#e2e8f0",
-    "posX": 4,
-    "posY": 2,
+    "posX": "4",
+    "posY": "2",
     "title": "Bronze Tools",
     "subtitle": "Early Age",
     "previous": [
@@ -142,8 +142,8 @@
   {
     "id": "012",
     "color": "#e2e8f0",
-    "posX": 5,
-    "posY": 2,
+    "posX": "5",
+    "posY": "2",
     "title": "Iron Tools",
     "subtitle": "Early Age",
     "previous": [
@@ -217,12 +217,11 @@
   {
     "id": "018",
     "color": "#e9d5ff",
-    "posX": 13,
-    "posY": 5,
+    "posX": "13",
+    "posY": "5",
     "title": "Scientific Theory",
     "subtitle": "Early Age",
     "previous": [
-      "091",
       "079"
     ],
     "descr": "",
@@ -245,8 +244,8 @@
   {
     "id": "020",
     "color": "#e2e8f0",
-    "posX": "8",
-    "posY": "2",
+    "posX": 8,
+    "posY": 2,
     "title": "Steel Tools",
     "subtitle": "Early Age",
     "previous": [
@@ -284,8 +283,8 @@
   {
     "id": "023",
     "color": "#e9d5ff",
-    "posX": 18,
-    "posY": 6,
+    "posX": "18",
+    "posY": "6",
     "title": "Mass Media",
     "subtitle": "Industrial Age",
     "previous": [
@@ -302,8 +301,7 @@
     "title": "Electricity",
     "subtitle": "Industrial Age",
     "previous": [
-      "017",
-      "067"
+      "017"
     ],
     "descr": "",
     "icon": "📄"
@@ -311,13 +309,13 @@
   {
     "id": "025",
     "color": "#fef08a",
-    "posX": "12",
-    "posY": "4",
+    "posX": 12,
+    "posY": 4,
     "title": "Primitive Batteries",
     "subtitle": "Industrial Age",
     "previous": [
-      "064",
-      "024"
+      "024",
+      "099"
     ],
     "descr": "",
     "icon": "📄"
@@ -325,8 +323,8 @@
   {
     "id": "026",
     "color": "#fef08a",
-    "posX": 17,
-    "posY": 2,
+    "posX": "17",
+    "posY": "2",
     "title": "Electric Motor",
     "subtitle": "Industrial Age",
     "previous": [
@@ -339,8 +337,8 @@
   {
     "id": "027",
     "color": "#bbf7d0",
-    "posX": 17,
-    "posY": 4,
+    "posX": "17",
+    "posY": "4",
     "title": "Photo-Voltaics",
     "subtitle": "Industrial Age",
     "previous": [
@@ -352,8 +350,8 @@
   {
     "id": "028",
     "color": "#bfdbfe",
-    "posX": 18,
-    "posY": 2,
+    "posX": "18",
+    "posY": "2",
     "title": "Compressor",
     "subtitle": "Industrial Age",
     "previous": [
@@ -365,8 +363,8 @@
   {
     "id": "029",
     "color": "#fecaca",
-    "posX": 19,
-    "posY": 1,
+    "posX": "19",
+    "posY": "1",
     "title": "Nether Portal",
     "subtitle": "Industrial Age",
     "previous": [
@@ -379,8 +377,8 @@
   {
     "id": "030",
     "color": "#e2e8f0",
-    "posX": 21,
-    "posY": 1,
+    "posX": "21",
+    "posY": "1",
     "title": "Netherite Tools",
     "subtitle": "Industrial Age",
     "previous": [
@@ -393,8 +391,8 @@
   {
     "id": "031",
     "color": "#fef08a",
-    "posX": 16,
-    "posY": 3,
+    "posX": "16",
+    "posY": "3",
     "title": "Circuits I",
     "subtitle": "Industrial Age",
     "previous": [
@@ -406,8 +404,8 @@
   {
     "id": "032",
     "color": "#fef08a",
-    "posX": 16,
-    "posY": 4,
+    "posX": "16",
+    "posY": "4",
     "title": "Chemical Batteries",
     "subtitle": "Industrial Age",
     "previous": [
@@ -419,8 +417,8 @@
   {
     "id": "033",
     "color": "#fef08a",
-    "posX": 19,
-    "posY": 3,
+    "posX": "19",
+    "posY": "3",
     "title": "Circuits II",
     "subtitle": "Industrial Age",
     "previous": [
@@ -445,13 +443,12 @@
   {
     "id": "035",
     "color": "#bfdbfe",
-    "posX": 14,
-    "posY": 4,
+    "posX": "14",
+    "posY": "4",
     "title": "Chemistry",
     "subtitle": "Industrial Age",
     "previous": [
       "068",
-      "025",
       "018"
     ],
     "descr": "",
@@ -460,8 +457,8 @@
   {
     "id": "036",
     "color": "#bbf7d0",
-    "posX": 21,
-    "posY": 5,
+    "posX": "21",
+    "posY": "5",
     "title": "Genetic Engineering",
     "subtitle": "Industrial Age",
     "previous": [
@@ -473,11 +470,13 @@
   {
     "id": "037",
     "color": "#fecaca",
-    "posX": 24,
+    "posX": 23,
     "posY": 2,
     "title": "Nuclear Reactor",
     "subtitle": "Industrial Age",
-    "previous": [],
+    "previous": [
+      "092"
+    ],
     "descr": "",
     "icon": "📄"
   },
@@ -485,10 +484,12 @@
     "id": "038",
     "color": "#bfdbfe",
     "posX": 29,
-    "posY": 0,
+    "posY": 1,
     "title": "Space Elevator",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "069"
+    ],
     "descr": "",
     "icon": "📄"
   },
@@ -510,10 +511,13 @@
     "id": "040",
     "color": "#e2e8f0",
     "posX": 29,
-    "posY": 4,
+    "posY": 5,
     "title": "Quantum Armor",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "039",
+      "053"
+    ],
     "descr": "",
     "icon": "📄"
   },
@@ -521,18 +525,21 @@
     "id": "041",
     "color": "#bfdbfe",
     "posX": 29,
-    "posY": 1,
+    "posY": 2,
     "title": "Hadron Collider",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "069",
+      "039"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "042",
     "color": "#e9d5ff",
-    "posX": 33,
-    "posY": 5,
+    "posX": "33",
+    "posY": "5",
     "title": "Player Teleportation",
     "subtitle": "Space Age",
     "previous": [],
@@ -542,8 +549,8 @@
   {
     "id": "043",
     "color": "#e9d5ff",
-    "posX": 32,
-    "posY": 5,
+    "posX": 33,
+    "posY": 2,
     "title": "Item Teleportation",
     "subtitle": "Space Age",
     "previous": [],
@@ -554,29 +561,34 @@
     "id": "044",
     "color": "#fecaca",
     "posX": 29,
-    "posY": 2,
+    "posY": 3,
     "title": "Fusion Reactor",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "069",
+      "039"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "045",
     "color": "#fef08a",
-    "posX": 30,
-    "posY": 0,
+    "posX": 31,
+    "posY": 2,
     "title": "Antimatter Batteries",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "041"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "046",
     "color": "#bfdbfe",
-    "posX": 31,
-    "posY": 3,
+    "posX": 32,
+    "posY": 1,
     "title": "Ion Thrusters",
     "subtitle": "Space Age",
     "previous": [],
@@ -586,7 +598,7 @@
   {
     "id": "047",
     "color": "#bbf7d0",
-    "posX": 34,
+    "posX": 32,
     "posY": 0,
     "title": "Spice Harvesting",
     "subtitle": "Space Age",
@@ -598,7 +610,7 @@
     "id": "048",
     "color": "#e2e8f0",
     "posX": 31,
-    "posY": 0,
+    "posY": 4,
     "title": "Dragon Steel",
     "subtitle": "Space Age",
     "previous": [],
@@ -608,8 +620,8 @@
   {
     "id": "049",
     "color": "#e2e8f0",
-    "posX": 32,
-    "posY": 0,
+    "posX": 33,
+    "posY": 4,
     "title": "Blue Beetle Armor",
     "subtitle": "Space Age",
     "previous": [],
@@ -619,8 +631,8 @@
   {
     "id": "050",
     "color": "#e9d5ff",
-    "posX": 32,
-    "posY": 3,
+    "posX": "32",
+    "posY": "3",
     "title": "Aether Dimension",
     "subtitle": "Future Age",
     "previous": [],
@@ -630,8 +642,8 @@
   {
     "id": "051",
     "color": "#e9d5ff",
-    "posX": 34,
-    "posY": 3,
+    "posX": "34",
+    "posY": "3",
     "title": "Advanced Player Teleportation",
     "subtitle": "Future Age",
     "previous": [],
@@ -641,8 +653,8 @@
   {
     "id": "052",
     "color": "#bfdbfe",
-    "posX": 34,
-    "posY": 1,
+    "posX": "34",
+    "posY": "1",
     "title": "Light Speed Travel",
     "subtitle": "Future Age",
     "previous": [],
@@ -652,7 +664,7 @@
   {
     "id": "053",
     "color": "#fef08a",
-    "posX": 28,
+    "posX": 27,
     "posY": 5,
     "title": "Artificial Intelligence",
     "subtitle": "Space Age",
@@ -666,11 +678,14 @@
   {
     "id": "054",
     "color": "#fecaca",
-    "posX": 31,
-    "posY": 1,
+    "posX": 29,
+    "posY": 6,
     "title": "Advanced Weaponry",
     "subtitle": "Future Age",
-    "previous": [],
+    "previous": [
+      "039",
+      "053"
+    ],
     "descr": "",
     "icon": "📄"
   },
@@ -688,8 +703,8 @@
   {
     "id": "056",
     "color": "#bbf7d0",
-    "posX": "6",
-    "posY": "0",
+    "posX": 6,
+    "posY": 0,
     "title": "Fertilizer I",
     "subtitle": "Early Age",
     "previous": [
@@ -715,8 +730,8 @@
   {
     "id": "058",
     "color": "#bbf7d0",
-    "posX": "8",
-    "posY": "0",
+    "posX": 8,
+    "posY": 0,
     "title": "Selective Breeding",
     "subtitle": "Early Age",
     "previous": [
@@ -728,8 +743,8 @@
   {
     "id": "059",
     "color": "#bbf7d0",
-    "posX": 15,
-    "posY": 5,
+    "posX": "15",
+    "posY": "5",
     "title": "Genetics",
     "subtitle": "Industrial Age",
     "previous": [
@@ -741,8 +756,8 @@
   {
     "id": "061",
     "color": "#bbf7d0",
-    "posX": 15,
-    "posY": 4,
+    "posX": "15",
+    "posY": "4",
     "title": "Plastics",
     "subtitle": "Industrial Age",
     "previous": [
@@ -778,8 +793,8 @@
   {
     "id": "064",
     "color": "#e9d5ff",
-    "posX": "7",
-    "posY": "4",
+    "posX": 7,
+    "posY": 4,
     "title": "Alchemy",
     "subtitle": "Early Age",
     "previous": [
@@ -798,7 +813,6 @@
     "title": "Transmutation I",
     "subtitle": "Industrial Age",
     "previous": [
-      "058",
       "077"
     ],
     "descr": "",
@@ -807,8 +821,8 @@
   {
     "id": "066",
     "color": "#e9d5ff",
-    "posX": 23,
-    "posY": 0,
+    "posX": "23",
+    "posY": "0",
     "title": "Transmutation II",
     "subtitle": "Industrial Age",
     "previous": [
@@ -820,12 +834,13 @@
   {
     "id": "067",
     "color": "#bfdbfe",
-    "posX": "9",
-    "posY": "3",
+    "posX": 9,
+    "posY": 3,
     "title": "Architecture",
     "subtitle": "Early Age",
     "previous": [
-      "020"
+      "020",
+      "099"
     ],
     "descr": "",
     "icon": "📄"
@@ -833,12 +848,13 @@
   {
     "id": "068",
     "color": "#bfdbfe",
-    "posX": 13,
-    "posY": 3,
+    "posX": "13",
+    "posY": "3",
     "title": "Engineering",
     "subtitle": "Industrial Age",
     "previous": [
-      "021"
+      "021",
+      "025"
     ],
     "descr": "",
     "icon": "📄"
@@ -850,15 +866,17 @@
     "posY": 1,
     "title": "Advanced Engineering",
     "subtitle": "Industrial Age",
-    "previous": [],
+    "previous": [
+      "090"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "070",
     "color": "#e9d5ff",
-    "posX": 22,
-    "posY": 0,
+    "posX": "22",
+    "posY": "0",
     "title": "The End Portal",
     "subtitle": "Industrial Age",
     "previous": [
@@ -936,8 +954,8 @@
   {
     "id": "076",
     "color": "#e9d5ff",
-    "posX": 5,
-    "posY": 5,
+    "posX": "5",
+    "posY": "5",
     "title": "Spellcasting I",
     "subtitle": "Industrial Age",
     "previous": [
@@ -963,8 +981,8 @@
   {
     "id": "078",
     "color": "#e9d5ff",
-    "posX": 23,
-    "posY": 4,
+    "posX": "23",
+    "posY": "4",
     "title": "Nano Technology",
     "subtitle": "Industrial Age",
     "previous": [
@@ -977,12 +995,12 @@
   {
     "id": "079",
     "color": "#e9d5ff",
-    "posX": 12,
-    "posY": 6,
+    "posX": "12",
+    "posY": "6",
     "title": "Printing Press",
     "subtitle": "Industrial Age",
     "previous": [
-      "005"
+      "004"
     ],
     "descr": "",
     "icon": "📄"
@@ -990,8 +1008,8 @@
   {
     "id": "080",
     "color": "#e9d5ff",
-    "posX": 24,
-    "posY": 5,
+    "posX": "24",
+    "posY": "5",
     "title": "Bio Augmentation",
     "subtitle": "Space Age",
     "previous": [
@@ -1004,8 +1022,8 @@
   {
     "id": "081",
     "color": "#fef08a",
-    "posX": 20,
-    "posY": 4,
+    "posX": "20",
+    "posY": "4",
     "title": "MicroProcessor",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1018,8 +1036,8 @@
   {
     "id": "082",
     "color": "#fef08a",
-    "posX": 22,
-    "posY": 4,
+    "posX": "22",
+    "posY": "4",
     "title": "Handheld Devices",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1031,8 +1049,8 @@
   {
     "id": "083",
     "color": "#e2e8f0",
-    "posX": 15,
-    "posY": 2,
+    "posX": "15",
+    "posY": "2",
     "title": "Radio",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1044,8 +1062,8 @@
   {
     "id": "084",
     "color": "#e9d5ff",
-    "posX": 19,
-    "posY": 5,
+    "posX": "19",
+    "posY": "5",
     "title": "X-Rays",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1058,8 +1076,8 @@
   {
     "id": "085",
     "color": "#fef08a",
-    "posX": 21,
-    "posY": 3,
+    "posX": "21",
+    "posY": "3",
     "title": "Quantum Chemistry",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1084,8 +1102,8 @@
   {
     "id": "087",
     "color": "#e9d5ff",
-    "posX": 21,
-    "posY": 6,
+    "posX": "21",
+    "posY": "6",
     "title": "Information Technology",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1101,15 +1119,17 @@
     "posY": 0,
     "title": "Manullyum Tools",
     "subtitle": "Industrial Age",
-    "previous": [],
+    "previous": [
+      "066"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "089",
     "color": "#e2e8f0",
-    "posX": 18,
-    "posY": 3,
+    "posX": "18",
+    "posY": "3",
     "title": "Electric Alloy Smelter",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1125,19 +1145,22 @@
     "posY": 1,
     "title": "Dark Steel Tools",
     "subtitle": "Industrial Age",
-    "previous": [],
+    "previous": [
+      "098"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "091",
     "color": "#e2e8f0",
-    "posX": 10,
+    "posX": 11,
     "posY": 5,
     "title": "Flight",
     "subtitle": "Industrial Age",
     "previous": [
-      "004"
+      "004",
+      "099"
     ],
     "descr": "",
     "icon": "📄"
@@ -1158,8 +1181,8 @@
   {
     "id": "093",
     "color": "#e2e8f0",
-    "posX": 33,
-    "posY": 4,
+    "posX": 31,
+    "posY": 1,
     "title": "Applied Energistics [AE2]",
     "subtitle": "Industrial Age",
     "previous": [],
@@ -1169,8 +1192,8 @@
   {
     "id": "094",
     "color": "#e2e8f0",
-    "posX": 14,
-    "posY": 2,
+    "posX": "14",
+    "posY": "2",
     "title": "Replaceable Parts",
     "subtitle": "Industrial Age",
     "previous": [
@@ -1182,33 +1205,39 @@
   {
     "id": "095",
     "color": "#fef08a",
-    "posX": 25,
+    "posX": 26,
     "posY": 3,
     "title": "Crystal Cell Batteries",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "098"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "096",
     "color": "#e9d5ff",
-    "posX": 24,
-    "posY": 3,
+    "posX": 26,
+    "posY": 0,
     "title": "Enchanting III",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "088"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "097",
     "color": "#e9d5ff",
-    "posX": 24,
-    "posY": 3,
+    "posX": 27,
+    "posY": 0,
     "title": "Spellcasting III",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "096"
+    ],
     "descr": "",
     "icon": "📄"
   },
@@ -1216,24 +1245,26 @@
     "id": "098",
     "color": "#e2e8f0",
     "posX": 24,
-    "posY": 3,
+    "posY": 2,
     "title": "Advanced Alloy Smelter",
     "subtitle": "Space Age",
-    "previous": [],
+    "previous": [
+      "037"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "099",
     "color": "#e2e8f0",
-    "posX": 24,
-    "posY": 3,
+    "posX": 8,
+    "posY": 4,
     "title": "Natural Materials",
     "subtitle": "Early Age",
-    "previous": [],
+    "previous": [
+      "064"
+    ],
     "descr": "",
     "icon": "📄"
   }
-
-
 ]
