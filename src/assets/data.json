@@ -2,13 +2,12 @@
   {
     "id": "001",
     "color": "brown",
-    "posX": "1",
-    "posY": "2",
+    "posX": 1,
+    "posY": 2,
     "title": "Woodworking",
     "subtitle": "Early Age",
     "previous": [
-      "002",
-      "003"
+      "002"
     ],
     "descr": "",
     "icon": "📄"
@@ -27,11 +26,14 @@
   {
     "id": "003",
     "color": "#e9d5ff",
-    "posX": "1",
-    "posY": "4",
+    "posX": 2,
+    "posY": 4,
     "title": "Writing",
     "subtitle": "Early Age",
-    "previous": [],
+    "previous": [
+      "001",
+      "055"
+    ],
     "descr": "",
     "icon": "📄"
   },
@@ -39,21 +41,8 @@
     "id": "004",
     "color": "#e9d5ff",
     "posX": 10,
-    "posY": 6,
+    "posY": 5,
     "title": "Mathematics",
-    "subtitle": "Early Age",
-    "previous": [
-      "005"
-    ],
-    "descr": "",
-    "icon": "📄"
-  },
-  {
-    "id": "005",
-    "color": "#e9d5ff",
-    "posX": 8,
-    "posY": 6,
-    "title": "Currency",
     "subtitle": "Early Age",
     "previous": [
       "010"
@@ -62,15 +51,27 @@
     "icon": "📄"
   },
   {
+    "id": "005",
+    "color": "#e9d5ff",
+    "posX": 5,
+    "posY": 5,
+    "title": "Currency",
+    "subtitle": "Early Age",
+    "previous": [
+      "075"
+    ],
+    "descr": "",
+    "icon": "📄"
+  },
+  {
     "id": "006",
     "color": "#fecaca",
-    "posX": "2",
-    "posY": "2",
+    "posX": 2,
+    "posY": 2,
     "title": "Kiln",
     "subtitle": "Early Age",
     "previous": [
-      "001",
-      "071"
+      "001"
     ],
     "descr": "",
     "icon": "📄"
@@ -78,13 +79,12 @@
   {
     "id": "007",
     "color": "#e2e8f0",
-    "posX": "2",
-    "posY": "3",
+    "posX": 3,
+    "posY": 3,
     "title": "Copper Tools",
     "subtitle": "Early Age",
     "previous": [
-      "006",
-      "072"
+      "006"
     ],
     "descr": "",
     "icon": "📄"
@@ -92,8 +92,8 @@
   {
     "id": "008",
     "color": "#fecaca",
-    "posX": "3",
-    "posY": "2",
+    "posX": 4,
+    "posY": 2,
     "title": "Smeltery",
     "subtitle": "Early Age",
     "previous": [
@@ -105,23 +105,26 @@
   {
     "id": "009",
     "color": "#e9d5ff",
-    "posX": "0",
-    "posY": "6",
+    "posX": 7,
+    "posY": 6,
     "title": "Drama and Poetry",
     "subtitle": "Early Age",
-    "previous": [],
+    "previous": [
+      "067"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "010",
     "color": "#e9d5ff",
-    "posX": 6,
-    "posY": 6,
+    "posX": 7,
+    "posY": 5,
     "title": "Philosophy",
     "subtitle": "Early Age",
     "previous": [
-      "074"
+      "005",
+      "067"
     ],
     "descr": "",
     "icon": "📄"
@@ -129,8 +132,8 @@
   {
     "id": "011",
     "color": "#e2e8f0",
-    "posX": "4",
-    "posY": "2",
+    "posX": 5,
+    "posY": 2,
     "title": "Bronze Tools",
     "subtitle": "Early Age",
     "previous": [
@@ -142,8 +145,8 @@
   {
     "id": "012",
     "color": "#e2e8f0",
-    "posX": "5",
-    "posY": "2",
+    "posX": 6,
+    "posY": 2,
     "title": "Iron Tools",
     "subtitle": "Early Age",
     "previous": [
@@ -155,12 +158,13 @@
   {
     "id": "013",
     "color": "#bfdbfe",
-    "posX": "3",
-    "posY": "1",
+    "posX": 5,
+    "posY": 1,
     "title": "Sailing",
     "subtitle": "Early Age",
     "previous": [
-      "071"
+      "071",
+      "099"
     ],
     "descr": "",
     "icon": "📄"
@@ -168,12 +172,11 @@
   {
     "id": "014",
     "color": "#bbf7d0",
-    "posX": "6",
-    "posY": "1",
+    "posX": 6,
+    "posY": 1,
     "title": "Natural Power",
     "subtitle": "Early Age",
     "previous": [
-      "057",
       "013"
     ],
     "descr": "",
@@ -182,19 +185,21 @@
   {
     "id": "015",
     "color": "#e9d5ff",
-    "posX": "0",
-    "posY": "6",
-    "title": "Theology",
+    "posX": 10,
+    "posY": 6,
+    "title": "Organized Religion",
     "subtitle": "Early Age",
-    "previous": [],
+    "previous": [
+      "009"
+    ],
     "descr": "",
     "icon": "📄"
   },
   {
     "id": "016",
     "color": "#fecaca",
-    "posX": "6",
-    "posY": "3",
+    "posX": 0,
+    "posY": 4,
     "title": "Gun Powder",
     "subtitle": "Early Age",
     "previous": [],
@@ -217,11 +222,12 @@
   {
     "id": "018",
     "color": "#e9d5ff",
-    "posX": "13",
-    "posY": "5",
+    "posX": 13,
+    "posY": 5,
     "title": "Scientific Theory",
     "subtitle": "Early Age",
     "previous": [
+      "004",
       "079"
     ],
     "descr": "",
@@ -230,8 +236,8 @@
   {
     "id": "019",
     "color": "#fecaca",
-    "posX": "7",
-    "posY": "2",
+    "posX": 7,
+    "posY": 2,
     "title": "Primitive Blast Furnace",
     "subtitle": "Early Age",
     "previous": [
@@ -270,8 +276,8 @@
   {
     "id": "022",
     "color": "#e2e8f0",
-    "posX": "9",
-    "posY": "1",
+    "posX": 10,
+    "posY": 1,
     "title": "Diamond Tools",
     "subtitle": "Industrial Age",
     "previous": [
@@ -283,8 +289,8 @@
   {
     "id": "023",
     "color": "#e9d5ff",
-    "posX": "18",
-    "posY": "6",
+    "posX": 15,
+    "posY": 6,
     "title": "Mass Media",
     "subtitle": "Industrial Age",
     "previous": [
@@ -296,8 +302,8 @@
   {
     "id": "024",
     "color": "#fef08a",
-    "posX": 11,
-    "posY": 3,
+    "posX": "11",
+    "posY": "3",
     "title": "Electricity",
     "subtitle": "Industrial Age",
     "previous": [
@@ -309,13 +315,13 @@
   {
     "id": "025",
     "color": "#fef08a",
-    "posX": 12,
-    "posY": 4,
+    "posX": "12",
+    "posY": "4",
     "title": "Primitive Batteries",
     "subtitle": "Industrial Age",
     "previous": [
       "024",
-      "099"
+      "064"
     ],
     "descr": "",
     "icon": "📄"
@@ -470,8 +476,8 @@
   {
     "id": "037",
     "color": "#fecaca",
-    "posX": 23,
-    "posY": 2,
+    "posX": "23",
+    "posY": "2",
     "title": "Nuclear Reactor",
     "subtitle": "Industrial Age",
     "previous": [
@@ -483,8 +489,8 @@
   {
     "id": "038",
     "color": "#bfdbfe",
-    "posX": 29,
-    "posY": 1,
+    "posX": "29",
+    "posY": "1",
     "title": "Space Elevator",
     "subtitle": "Space Age",
     "previous": [
@@ -496,8 +502,8 @@
   {
     "id": "039",
     "color": "#fef08a",
-    "posX": 27,
-    "posY": 3,
+    "posX": "27",
+    "posY": "3",
     "title": "Circuits III",
     "subtitle": "Space Age",
     "previous": [
@@ -510,8 +516,8 @@
   {
     "id": "040",
     "color": "#e2e8f0",
-    "posX": 29,
-    "posY": 5,
+    "posX": "29",
+    "posY": "5",
     "title": "Quantum Armor",
     "subtitle": "Space Age",
     "previous": [
@@ -524,8 +530,8 @@
   {
     "id": "041",
     "color": "#bfdbfe",
-    "posX": 29,
-    "posY": 2,
+    "posX": "29",
+    "posY": "2",
     "title": "Hadron Collider",
     "subtitle": "Space Age",
     "previous": [
@@ -549,8 +555,8 @@
   {
     "id": "043",
     "color": "#e9d5ff",
-    "posX": 33,
-    "posY": 2,
+    "posX": "33",
+    "posY": "2",
     "title": "Item Teleportation",
     "subtitle": "Space Age",
     "previous": [],
@@ -560,8 +566,8 @@
   {
     "id": "044",
     "color": "#fecaca",
-    "posX": 29,
-    "posY": 3,
+    "posX": "29",
+    "posY": "3",
     "title": "Fusion Reactor",
     "subtitle": "Space Age",
     "previous": [
@@ -574,8 +580,8 @@
   {
     "id": "045",
     "color": "#fef08a",
-    "posX": 31,
-    "posY": 2,
+    "posX": "31",
+    "posY": "2",
     "title": "Antimatter Batteries",
     "subtitle": "Space Age",
     "previous": [
@@ -587,8 +593,8 @@
   {
     "id": "046",
     "color": "#bfdbfe",
-    "posX": 32,
-    "posY": 1,
+    "posX": "32",
+    "posY": "1",
     "title": "Ion Thrusters",
     "subtitle": "Space Age",
     "previous": [],
@@ -598,8 +604,8 @@
   {
     "id": "047",
     "color": "#bbf7d0",
-    "posX": 32,
-    "posY": 0,
+    "posX": "32",
+    "posY": "0",
     "title": "Spice Harvesting",
     "subtitle": "Space Age",
     "previous": [],
@@ -609,8 +615,8 @@
   {
     "id": "048",
     "color": "#e2e8f0",
-    "posX": 31,
-    "posY": 4,
+    "posX": "31",
+    "posY": "4",
     "title": "Dragon Steel",
     "subtitle": "Space Age",
     "previous": [],
@@ -620,8 +626,8 @@
   {
     "id": "049",
     "color": "#e2e8f0",
-    "posX": 33,
-    "posY": 4,
+    "posX": "33",
+    "posY": "4",
     "title": "Blue Beetle Armor",
     "subtitle": "Space Age",
     "previous": [],
@@ -664,80 +670,77 @@
   {
     "id": "053",
     "color": "#fef08a",
-    "posX": 27,
-    "posY": 5,
+    "posX": "27",
+    "posY": "5",
     "title": "Artificial Intelligence",
     "subtitle": "Space Age",
     "previous": [
       "087",
       "080"
     ],
-    "descr": "",
+    "descr": "Using citizen data from your civilization; build an artificial intelligence",
     "icon": "📄"
   },
   {
     "id": "054",
     "color": "#fecaca",
-    "posX": 29,
-    "posY": 6,
+    "posX": "29",
+    "posY": "6",
     "title": "Advanced Weaponry",
     "subtitle": "Future Age",
     "previous": [
       "039",
       "053"
     ],
-    "descr": "",
+    "descr": "Advanced weapons do awesome damage",
     "icon": "📄"
   },
   {
     "id": "055",
     "color": "#bbf7d0",
-    "posX": "0",
-    "posY": "0",
+    "posX": 0,
+    "posY": 4,
     "title": "Agriculture",
     "subtitle": "Early Age",
     "previous": [],
-    "descr": "",
+    "descr": "Till some soil",
     "icon": "📄"
   },
   {
     "id": "056",
     "color": "#bbf7d0",
-    "posX": 6,
+    "posX": 5,
     "posY": 0,
     "title": "Fertilizer I",
     "subtitle": "Early Age",
     "previous": [
-      "057"
+      "099"
     ],
-    "descr": "",
+    "descr": "Use fertilizer on a plant",
     "icon": "📄"
   },
   {
     "id": "057",
     "color": "#bbf7d0",
-    "posX": "2",
-    "posY": "0",
+    "posX": 0,
+    "posY": 0,
     "title": "Animal Husbandry",
     "subtitle": "Early Age",
-    "previous": [
-      "055",
-      "001"
-    ],
-    "descr": "",
+    "previous": [],
+    "descr": "Get some milk or some meat",
     "icon": "📄"
   },
   {
     "id": "058",
     "color": "#bbf7d0",
-    "posX": 8,
+    "posX": 2,
     "posY": 0,
     "title": "Selective Breeding",
     "subtitle": "Early Age",
     "previous": [
-      "056"
+      "057"
     ],
-    "descr": "",
+    "descr": "Breed two plants/animals and get one better",
     "icon": "📄"
   },
   {
@@ -750,7 +753,7 @@
     "previous": [
       "035"
     ],
-    "descr": "",
+    "descr": "Read the genetic properties of your Plants and Animals",
     "icon": "📄"
   },
   {
@@ -763,46 +766,45 @@
     "previous": [
       "035"
     ],
-    "descr": "",
+    "descr": "Produce some plastics",
     "icon": "📄"
   },
   {
     "id": "062",
     "color": "#bfdbfe",
-    "posX": "4",
-    "posY": "3",
+    "posX": 5,
+    "posY": 3,
     "title": "Glass Blowing",
     "subtitle": "Early Age",
     "previous": [
       "008"
     ],
-    "descr": "",
+    "descr": "Cast glass in tinkers smeltery; make some glass bottles",
     "icon": "📄"
   },
   {
     "id": "063",
     "color": "#e9d5ff",
-    "posX": "3",
-    "posY": "5",
+    "posX": 0,
+    "posY": 6,
     "title": "Mysticism",
     "subtitle": "Early Age",
     "previous": [],
-    "descr": "",
+    "descr": "Receive a blessing from one of the four worldly faiths",
     "icon": "📄"
   },
   {
     "id": "064",
     "color": "#e9d5ff",
     "posX": 7,
-    "posY": 4,
+    "posY": 3,
     "title": "Alchemy",
     "subtitle": "Early Age",
     "previous": [
-      "062",
-      "016",
-      "072"
+      "076",
+      "062"
     ],
-    "descr": "",
+    "descr": "Construct an Brewing Station",
     "icon": "📄"
   },
   {
@@ -815,7 +817,7 @@
     "previous": [
       "077"
     ],
-    "descr": "",
+    "descr": "Transmutation of living beings",
     "icon": "📄"
   },
   {
@@ -828,21 +830,21 @@
     "previous": [
       "070"
     ],
-    "descr": "",
+    "descr": "Transmutation of items",
     "icon": "📄"
   },
   {
     "id": "067",
     "color": "#bfdbfe",
-    "posX": 9,
-    "posY": 3,
+    "posX": 5,
+    "posY": 6,
     "title": "Architecture",
     "subtitle": "Early Age",
     "previous": [
-      "020",
-      "099"
+      "074",
+      "075"
     ],
-    "descr": "",
+    "descr": "Construct your first Minecolonies Building",
     "icon": "📄"
   },
   {
@@ -856,20 +858,20 @@
       "021",
       "025"
     ],
-    "descr": "",
+    "descr": "Construct a Foundation II using Steel",
     "icon": "📄"
   },
   {
     "id": "069",
     "color": "#bfdbfe",
-    "posX": 27,
-    "posY": 1,
+    "posX": "27",
+    "posY": "1",
     "title": "Advanced Engineering",
     "subtitle": "Industrial Age",
     "previous": [
       "090"
     ],
-    "descr": "",
+    "descr": "Construct a Foundation IV using Dark Steel",
     "icon": "📄"
   },
   {
@@ -883,86 +885,86 @@
       "065",
       "030"
     ],
-    "descr": "",
+    "descr": "Obtain all the worldly Eyes of Ender and travel to the End",
     "icon": "📄"
   },
   {
     "id": "071",
     "color": "#e2e8f0",
-    "posX": "2",
-    "posY": "1",
+    "posX": 3,
+    "posY": 1,
     "title": "Tin Tools",
     "subtitle": "Early Age",
-    "previous": [],
-    "descr": "",
+    "previous": [
+      "006"
+    ],
+    "descr": "Craft a tool, weapon, or part from tin",
     "icon": "📄"
   },
   {
     "id": "072",
     "color": "#e9d5ff",
-    "posX": "4",
-    "posY": "4",
+    "posX": 4,
+    "posY": 4,
     "title": "Enchanting I",
     "subtitle": "Early Age",
     "previous": [
-      "063",
+      "007",
       "003"
     ],
-    "descr": "",
+    "descr": "Enchant weapons and armor with basic level enchantments",
     "icon": "📄"
   },
   {
     "id": "073",
     "color": "#e9d5ff",
-    "posX": "10",
-    "posY": "1",
+    "posX": 11,
+    "posY": 1,
     "title": "Enchanting II",
     "subtitle": "Early Age",
     "previous": [
       "022"
     ],
-    "descr": "",
+    "descr": "Enchant weapons and armor with intermediate level enchantments",
     "icon": "📄"
   },
   {
     "id": "074",
     "color": "#e9d5ff",
-    "posX": "4",
-    "posY": "6",
-    "title": "Religion",
+    "posX": 3,
+    "posY": 6,
+    "title": "Guilds",
     "subtitle": "Early Age",
     "previous": [
-      "075",
       "063"
     ],
-    "descr": "",
+    "descr": "Found a Minecolonies guild to receive quests from the Gods and instill belief ",
     "icon": "📄"
   },
   {
     "id": "075",
     "color": "#e9d5ff",
-    "posX": "2",
-    "posY": "6",
+    "posX": 3,
+    "posY": 5,
     "title": "Law",
     "subtitle": "Early Age",
     "previous": [
       "003"
     ],
-    "descr": "",
+    "descr": "Legal codex allows foundation Mine Colonies civilization",
     "icon": "📄"
   },
   {
     "id": "076",
     "color": "#e9d5ff",
-    "posX": "5",
-    "posY": "5",
+    "posX": 5,
+    "posY": 4,
     "title": "Spellcasting I",
     "subtitle": "Industrial Age",
     "previous": [
-      "072",
-      "074"
+      "072"
     ],
-    "descr": "",
+    "descr": "Allows discovery and casting of basic level spells",
     "icon": "📄"
   },
   {
@@ -975,7 +977,7 @@
     "previous": [
       "073"
     ],
-    "descr": "",
+    "descr": "Allows discovery and casting of intermediate level spells",
     "icon": "📄"
   },
   {
@@ -989,20 +991,20 @@
       "082",
       "085"
     ],
-    "descr": "",
+    "descr": "Allows production of nano-scale devices",
     "icon": "📄"
   },
   {
     "id": "079",
     "color": "#e9d5ff",
-    "posX": "12",
-    "posY": "6",
+    "posX": 12,
+    "posY": 6,
     "title": "Printing Press",
     "subtitle": "Industrial Age",
     "previous": [
-      "004"
+      "015"
     ],
-    "descr": "",
+    "descr": "Permits mass production of reading and research material; allows proliferation of ideas throughouut your empire",
     "icon": "📄"
   },
   {
@@ -1016,7 +1018,7 @@
       "078",
       "036"
     ],
-    "descr": "",
+    "descr": "Living being fuse seemlessly with technology for unique benefits",
     "icon": "📄"
   },
   {
@@ -1030,7 +1032,7 @@
       "033",
       "027"
     ],
-    "descr": "",
+    "descr": "Allows production of handheld devices and remote operated systems",
     "icon": "📄"
   },
   {
@@ -1043,7 +1045,7 @@
     "previous": [
       "081"
     ],
-    "descr": "",
+    "descr": "Small devices and wearable technology allows your citizens to communicate and share ideas much more easily",
     "icon": "📄"
   },
   {
@@ -1056,7 +1058,7 @@
     "previous": [
       "094"
     ],
-    "descr": "",
+    "descr": "Combiniing simple circuits and an antenna allow for wireless communication devices",
     "icon": "📄"
   },
   {
@@ -1070,7 +1072,7 @@
       "027",
       "059"
     ],
-    "descr": "",
+    "descr": "X-rays support high energy chemistry and advanced medical technology",
     "icon": "📄"
   },
   {
@@ -1083,46 +1085,46 @@
     "previous": [
       "033"
     ],
-    "descr": "",
+    "descr": "Large Chemical reactor and a strong grasp of quantum physics allows the production of advanced compounds",
     "icon": "📄"
   },
   {
     "id": "086",
     "color": "#fef08a",
-    "posX": 26,
-    "posY": 4,
+    "posX": "26",
+    "posY": "4",
     "title": "Advanced Photo-Voltaics",
     "subtitle": "Industrial Age",
     "previous": [
       "078"
     ],
-    "descr": "",
+    "descr": "Advanced materials convert electromagnetic waves to electricity far more efficiently",
     "icon": "📄"
   },
   {
     "id": "087",
     "color": "#e9d5ff",
-    "posX": "21",
-    "posY": "6",
+    "posX": 18,
+    "posY": 6,
     "title": "Information Technology",
     "subtitle": "Industrial Age",
     "previous": [
       "023"
     ],
-    "descr": "",
+    "descr": "Data Analytics, Marketing Techniques and Software Strategy compete to promote quality of life for your citizens",
     "icon": "📄"
   },
   {
     "id": "088",
     "color": "#e2e8f0",
-    "posX": 24,
-    "posY": 0,
+    "posX": "24",
+    "posY": "0",
     "title": "Manullyum Tools",
     "subtitle": "Industrial Age",
     "previous": [
       "066"
     ],
-    "descr": "",
+    "descr": "An alloy of Tellesium, Netherite, and Diamond produce this rare mystical metal",
     "icon": "📄"
   },
   {
@@ -1130,63 +1132,62 @@
     "color": "#e2e8f0",
     "posX": "18",
     "posY": "3",
-    "title": "Electric Alloy Smelter",
+    "title": "Basic Alloy Smelter",
     "subtitle": "Industrial Age",
     "previous": [
       "031"
     ],
-    "descr": "",
+    "descr": "Electronic alloy smelter for speedy smelting of alloyed metals",
     "icon": "📄"
   },
   {
     "id": "090",
     "color": "#e2e8f0",
-    "posX": 26,
-    "posY": 1,
+    "posX": "26",
+    "posY": "1",
     "title": "Dark Steel Tools",
     "subtitle": "Industrial Age",
     "previous": [
       "098"
     ],
-    "descr": "",
+    "descr": "An alloy of Netherite, Obsidian, and Tellesium-Steel made in an Advanced Alloy Smelter",
     "icon": "📄"
   },
   {
     "id": "091",
     "color": "#e2e8f0",
-    "posX": 11,
-    "posY": 5,
-    "title": "Flight",
+    "posX": 10,
+    "posY": 0,
+    "title": "Basic Flight",
     "subtitle": "Industrial Age",
     "previous": [
-      "004",
-      "099"
+      "014"
     ],
-    "descr": "",
+    "descr": "Build a plane, reach the Sky Islands",
     "icon": "📄"
   },
   {
     "id": "092",
     "color": "#e2e8f0",
-    "posX": 22,
-    "posY": 2,
+    "posX": "22",
+    "posY": "2",
     "title": "Rocketry",
     "subtitle": "Industrial Age",
     "previous": [
       "085"
     ],
-    "descr": "",
+    "descr": "Advanced Chemicals allows for Advanced propulsion technology",
     "icon": "📄"
   },
   {
     "id": "093",
     "color": "#e2e8f0",
-    "posX": 31,
-    "posY": 1,
+    "posX": "31",
+    "posY": "1",
     "title": "Applied Energistics [AE2]",
     "subtitle": "Industrial Age",
     "previous": [],
-    "descr": "",
+    "descr": "Electronic Automated Storage System",
     "icon": "📄"
   },
   {
@@ -1199,72 +1200,98 @@
     "previous": [
       "068"
     ],
-    "descr": "",
+    "descr": "Consolidated pack of resusable pieces and parts for crafting or repairing miscellaneous items",
     "icon": "📄"
   },
   {
     "id": "095",
     "color": "#fef08a",
-    "posX": 26,
-    "posY": 3,
+    "posX": "26",
+    "posY": "3",
     "title": "Crystal Cell Batteries",
     "subtitle": "Space Age",
     "previous": [
       "098"
     ],
-    "descr": "",
+    "descr": "Supercharged Crystals hold massive amounts of energy",
     "icon": "📄"
   },
   {
     "id": "096",
     "color": "#e9d5ff",
-    "posX": 26,
-    "posY": 0,
+    "posX": "26",
+    "posY": "0",
     "title": "Enchanting III",
     "subtitle": "Space Age",
     "previous": [
       "088"
     ],
-    "descr": "",
+    "descr": "Advanced Enchants become available; requires discovering nearly all Essense",
     "icon": "📄"
   },
   {
     "id": "097",
     "color": "#e9d5ff",
-    "posX": 27,
-    "posY": 0,
+    "posX": "27",
+    "posY": "0",
     "title": "Spellcasting III",
     "subtitle": "Space Age",
     "previous": [
       "096"
     ],
-    "descr": "",
+    "descr": "Advanced spells become available; requires massive faith in or service to your God",
     "icon": "📄"
   },
   {
     "id": "098",
     "color": "#e2e8f0",
-    "posX": 24,
-    "posY": 2,
+    "posX": "24",
+    "posY": "2",
     "title": "Advanced Alloy Smelter",
     "subtitle": "Space Age",
     "previous": [
       "037"
     ],
-    "descr": "",
+    "descr": "Enderio IO Alloy smelter, requires enderium to run",
     "icon": "📄"
   },
   {
     "id": "099",
     "color": "#e2e8f0",
-    "posX": 8,
-    "posY": 4,
+    "posX": 4,
+    "posY": 0,
     "title": "Natural Materials",
     "subtitle": "Early Age",
     "previous": [
-      "064"
+      "058"
     ],
-    "descr": "",
+    "descr": "Commercial goods produced from mob drops or animals",
+    "icon": "📄"
+  },
+    {
+    "id": "099",
+    "color": "#e2e8f0",
+    "posX": 0,
+    "posY": 1,
+    "title": "Simple Machines",
+    "subtitle": "Early Age",
+    "previous": [
+      "058"
+    ],
+    "descr": "Simple Create machines or affiliate materials",
+    "icon": "📄"
+  },
+  {
+    "id": "099",
+    "color": "#e2e8f0",
+    "posX": 0,
+    "posY": 1,
+    "title": "Mass Production",
+    "subtitle": "Early Age",
+    "previous": [
+      "058"
+    ],
+    "descr": "More complex replaceable parts set used for crafting",
     "icon": "📄"
   }
 ]
