@@ -17,12 +17,13 @@ export const Node = ({ nodeState, grid, isSelected }) => {
     const handleMouseLeave = () => setIsHovered(false);
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative', pointerEvents: 'none' }}>
             <div 
             data-node-id={nodeState.id}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={{
+                pointerEvents: 'auto',
                 position: 'absolute',
                 width: `${grid.NODE_WIDTH}px`,
                 height: `${grid.NODE_HEIGHT}px`,
@@ -42,7 +43,6 @@ export const Node = ({ nodeState, grid, isSelected }) => {
                 {/*<div style={{ fontSize: '1.2em' }}>{nodeState.icon}</div>*/}
                 <div style={{ fontWeight: 'bold' }}>{nodeState.title}</div>
                 {nodeState.subtitle && <div style={{ fontSize: '0.9em', color: '#666' }}>{nodeState.subtitle}</div>}
-                <div style={{ fontSize: '0.8em' }}>{nodeState.descr}</div>
             </div>
         </div>
         {isHovered && !isSelected && nodeState.descr && (
