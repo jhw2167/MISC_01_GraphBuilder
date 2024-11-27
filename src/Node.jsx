@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NodeState } from './NodeState';
 import { NodeOptionsPanel } from './NodeOptionsPanel';
 import { COLORS } from './NodeState';
 
 export const Node = ({ nodeState, grid, isSelected }) => {
+    const [isHovered, setIsHovered] = useState(false);
 
     const xPos = grid.BUFFER_SIDE + (parseInt(nodeState.posX) * grid.HORIZONTAL_SPACING);
     const yPos = grid.BUFFER_TOP + (parseInt(nodeState.posY) * grid.VERTICAL_SPACING);
@@ -12,10 +13,15 @@ export const Node = ({ nodeState, grid, isSelected }) => {
     //if the id is dummy, calculate the position based on the mouse position
     const isDummy = nodeState.id === 'dummy';
 
+    const handleMouseEnter = () => setIsHovered(true);
+    const handleMouseLeave = () => setIsHovered(false);
+
     return (
         <div style={{ position: 'relative' }}>
             <div 
             data-node-id={nodeState.id}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
             style={{
                 position: 'absolute',
                 width: `${grid.NODE_WIDTH}px`,
@@ -39,6 +45,22 @@ export const Node = ({ nodeState, grid, isSelected }) => {
                 <div style={{ fontSize: '0.8em' }}>{nodeState.descr}</div>
             </div>
         </div>
+        {isHovered && !isSelected && nodeState.descr && (
+            <div style={{
+                position: 'absolute',
+                left: `${xPos + grid.NODE_WIDTH + 10}px`,
+                top: `${yPos}px`,
+                backgroundColor: 'white',
+                padding: '10px',
+                borderRadius: '5px',
+                border: '1px solid black',
+                maxWidth: '200px',
+                zIndex: 1000,
+                boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+            }}>
+                {nodeState.descr}
+            </div>
+        )}
         </div>
     );
   };
