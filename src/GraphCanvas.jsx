@@ -4,6 +4,7 @@ import { NodeState, COLORS } from './NodeState';
 import { DEFAULT_OPTIONS } from './NodeOptions';
 import { NodeOptionsPanel } from './NodeOptionsPanel';
 import initialData from './assets/data.json';
+import data2 from './assets/data2.json';
 import techData from './assets/techTree.json';
 
 export const GraphCanvas = () => {
@@ -64,6 +65,13 @@ export const GraphCanvas = () => {
     useEffect(() => {
         let data = initialData;
         let initialNodeStates = data.map(node => NodeState.fromJSON(node));
+        /*
+        let data2State = data2.map( (node, i) => {
+            node.descr = data[i].descr;
+            return NodeState.fromJSON(node)
+        });
+        let initialNodeStates = data2State;
+        */
 
         let useTechData = false;
         if(useTechData)
@@ -71,6 +79,9 @@ export const GraphCanvas = () => {
             data = techData.technologies;
             initialNodeStates = data.map(node => NodeState.fromJSONTechTree(node));
         }
+
+        //map the descr field from initialNodeStates to the data2State
+        let secondaryNodeStates = initialNodeStates
 
         setHistory([initialNodeStates]);
         setCurrentNodeStates(initialNodeStates);
