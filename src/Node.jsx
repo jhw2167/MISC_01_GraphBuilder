@@ -39,10 +39,44 @@ export const Node = ({ nodeState, grid, isSelected }) => {
                 boxSizing: 'border-box'
             }}
         >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                {/*<div style={{ fontSize: '1.2em' }}>{nodeState.icon}</div>*/}
-                <div style={{ fontWeight: 'bold' }}>{nodeState.title}</div>
-                {nodeState.subtitle && <div style={{ fontSize: '0.9em', color: '#666' }}>{nodeState.subtitle}</div>}
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                <div style={{ width: '64px', height: '64px', flexShrink: 0 }}>
+                    <img 
+                        src={`/src/assets/img/${nodeState.icon}`}
+                        alt=""
+                        onError={(e) => e.target.style.display = 'none'}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain'
+                        }}
+                    />
+                </div>
+                <div style={{ 
+                    flex: 1,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start'
+                }}>
+                    <div style={{ 
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start',
+                        width: '100%'
+                    }}>
+                        <div style={{ fontWeight: 'bold' }}>{nodeState.title}</div>
+                        {nodeState.subtitle && (
+                            <div style={{ 
+                                fontSize: '0.9em',
+                                color: '#666',
+                                marginLeft: '8px',
+                                textAlign: 'right'
+                            }}>
+                                {nodeState.subtitle}
+                            </div>
+                        )}
+                    </div>
+                </div>
             </div>
         </div>
         {isHovered && !isSelected && nodeState.descr && (
