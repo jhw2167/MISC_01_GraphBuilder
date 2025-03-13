@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { NodeState } from './NodeState';
+import { NodeState, NodeUnlocks } from './NodeState';
 import { NodeOptionsPanel } from './NodeOptionsPanel';
 import { COLORS } from './NodeState';
 
@@ -76,5 +76,6 @@ Node.propTypes = {
         BUFFER_SIDE: PropTypes.number.isRequired
     }).isRequired,
     isSelected: PropTypes.bool.isRequired,
-    onOptionChange: PropTypes.func
+    onOptionChange: PropTypes.func,
+    unlocks: PropTypes.arrayOf(PropTypes.instanceOf(NodeUnlocks))
 };

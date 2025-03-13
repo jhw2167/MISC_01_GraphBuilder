@@ -1,3 +1,19 @@
+export class NodeUnlocks {
+    constructor(icon, tag, link) {
+        this.icon = String(icon);
+        this.tag = String(tag);
+        this.link = String(link);
+    }
+
+    static fromJSON(jsonUnlock) {
+        return new NodeUnlocks(
+            jsonUnlock.icon || "",
+            jsonUnlock.tag || "",
+            jsonUnlock.link || ""
+        );
+    }
+}
+
 export const COLORS = {
     "blue": "#bfdbfe",
     "red": "#fecaca",
@@ -21,7 +37,9 @@ export class NodeState {
         this.previous = previous;
         this.descr = String(descr);
         this.icon = String(id+".png");
-        this.unlocks = unlocks;
+        this.unlocks = unlocks.map(unlock => {
+            return unlock instanceof NodeUnlocks ? unlock : NodeUnlocks.fromJSON(unlock);
+        });
     }
 
     static fromJSON(jsonNode) {
@@ -34,7 +52,7 @@ export class NodeState {
             jsonNode.subtitle || "", // subtitle not in JSON
             jsonNode.previous || [],
             jsonNode.descr || "",
-            jsonNode.unlocks || []
+            (jsonNode.unlocks || []).map(unlock => NodeUnlocks.fromJSON(unlock))
         );
     }
 
