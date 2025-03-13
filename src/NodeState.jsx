@@ -11,7 +11,7 @@ export const COLORS = {
 export class NodeState {
 
     
-    constructor(id, color, posX, posY, title, subtitle, previous, descr, icon) {
+    constructor(id, color, posX, posY, title, subtitle, previous, descr, unlocks) {
         this.id = String(id);
         this.color = COLORS[color] || color;
         this.posX = String(posX);
@@ -20,7 +20,8 @@ export class NodeState {
         this.subtitle = String(subtitle);
         this.previous = previous;
         this.descr = String(descr);
-        this.icon = String(icon);
+        this.icon = String(id+".png");
+        this.unlocks = unlocks;
     }
 
     static fromJSON(jsonNode) {
@@ -32,8 +33,8 @@ export class NodeState {
             jsonNode.title || "",
             jsonNode.subtitle || "", // subtitle not in JSON
             jsonNode.previous || [],
-            jsonNode.description || "",
-            jsonNode.icon || "📄"
+            jsonNode.descr || "",
+            jsonNode.unlocks || []
         );
     }
 
@@ -47,7 +48,7 @@ export class NodeState {
             jsonNode.subtitle || "", // subtitle not in JSON
             jsonNode.requiredTechs|| [],
             jsonNode.description || "",
-            jsonNode.icon || "📄"
+            jsonNode.unlocks || []
         );
     }
 
